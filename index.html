@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя страница ссылок</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Анимация падающего снега -->
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+    </div>
+
+    <div class="container">
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="images/profile.png" alt="Profile">
+            </div>
+            <h1 class="username">5Maks</h1>
+            <p class="bio"></p>
+        </div>
+        <!-- Блока social-icons больше нет! -->
+        <div class="links-section">
+            <a href="https://t.me/yourusername" class="social-link-button telegram-btn">
+                <div class="icon-wrapper">
+                    <i class="fab fa-telegram-plane"></i>
+                </div>
+                <div class="link-content">
+                    <div class="platform-name">Telegram</div>
+                    <div class="link-subtitle">@yourusername</div>
+                </div>
+            </a>
+            <a href="https://instagram.com/devon9801" class="social-link-button instagram-btn">
+                <div class="icon-wrapper">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="link-content">
+                    <div class="platform-name">Instagram</div>
+                    <div class="link-subtitle">@devon9801</div>
+                </div>
+            </a>
+            <a href="#" class="social-link-button tiktok-btn">
+                <div class="icon-wrapper">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="link-content">
+                    <div class="platform-name">TikTok</div>
+                    <div class="link-subtitle">Connect with me :)</div>
+                </div>
+            </a>
+            <a href="#" class="social-link-button youtube-btn">
+                <div class="icon-wrapper">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="link-content">
+                    <div class="platform-name">YouTube</div>
+                    <div class="link-subtitle">Subscribe to my channel</div>
+                </div>
+            </a>
+            <a href="#" class="social-link-button twitter-btn">
+                <div class="icon-wrapper">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <div class="link-content">
+                    <div class="platform-name">Twitter</div>
+                    <div class="link-subtitle">Follow me for updates</div>
+                </div>
+            </a>
+            <a href="https://funpay.com" class="social-link-button funpay-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="link-content">
+                    <div class="platform-name">FunPay</div>
+                    <div class="link-subtitle">Gaming marketplace</div>
+                </div>
+            </a>
+            <div class="social-link-button disabled-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="link-content">
+                    <div class="platform-name">5Maks</div>
+                    <div class="link-subtitle">COMING SOON</div>
+                    <div class="countdown-timer">
+                        <div class="timer-block">
+                            <span class="timer-value" id="days">00</span>
+                            <span class="timer-label">дней</span>
+                        </div>
+                        <div class="timer-block">
+                            <span class="timer-value" id="hours">00</span>
+                            <span class="timer-label">часов</span>
+                        </div>
+                        <div class="timer-block">
+                            <span class="timer-value" id="minutes">00</span>
+                            <span class="timer-label">минут</span>
+                        </div>
+                        <div class="timer-block">
+                            <span class="timer-value" id="seconds">00</span>
+                            <span class="timer-label">секунд</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
