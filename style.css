@@ -4,20 +4,38 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: url('images/background.png');
+    --text-color: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.97);
+    --card-text: #333333;
+    --shadow-color: rgba(0, 100, 150, 0.2);
+    --overlay-color: rgba(0, 50, 100, 0.3);
+}
+
+body.dark-theme {
+    --bg-color: url('images/background.png');
+    --text-color: #ffffff;
+    --card-bg: rgba(30, 30, 30, 0.95);
+    --card-text: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --overlay-color: rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: 'Arial', 'Segoe UI', sans-serif;
-    background: url('images/background.png') no-repeat center center fixed;
+    background: var(--bg-color) no-repeat center center fixed;
     background-size: cover;
-    color: #ffffff;
+    color: var(--text-color);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
     position: relative;
+    transition: all 0.3s ease;
 }
 
-/* Градиентный оверлей поверх фона */
 body::after {
     content: '';
     position: fixed;
@@ -25,9 +43,61 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, transparent 0%, rgba(0, 50, 100, 0.3) 100%);
+    background: radial-gradient(circle at center, transparent 0%, var(--overlay-color) 100%);
     pointer-events: none;
     z-index: 0;
+}
+
+/* Переключатель темы */
+.theme-toggle {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1) rotate(20deg);
+}
+.theme-toggle i {
+    font-size: 22px;
+    color: #fff;
+}
+
+/* Счётчик посетителей */
+.visitor-counter {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+.visitor-counter i {
+    font-size: 18px;
+    color: #fff;
+}
+.visitor-counter span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
 }
 
 /* Снег */
@@ -74,7 +144,7 @@ body::after {
 .snowflake:nth-child(19) { left: 90%; animation-duration: 11s; animation-delay: 1.5s; }
 .snowflake:nth-child(20) { left: 8%; animation-duration: 12s; animation-delay: 2.5s; font-size: 1.4em; }
 
-/* Плавающие частицы света */
+/* Плавающие частицы */
 .particles {
     position: fixed;
     top: 0;
@@ -94,20 +164,10 @@ body::after {
     animation: float-particles 15s infinite ease-in-out;
 }
 @keyframes float-particles {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(50px);
-        opacity: 0;
-    }
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
 }
 .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
 .particle:nth-child(2) { left: 25%; animation-delay: 2s; }
@@ -125,7 +185,7 @@ body::after {
     text-align: center;
     position: relative;
     z-index: 5;
-    filter: drop-shadow(0 20px 50px rgba(0, 100, 150, 0.4));
+    filter: drop-shadow(0 20px 50px var(--shadow-color));
 }
 
 /* Профиль */
@@ -147,34 +207,13 @@ body::after {
     overflow: hidden;
     background: linear-gradient(135deg, #40BFDF 0%, #60D5F5 100%);
     border: 5px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4), 0 8px 20px rgba(0, 100, 150, 0.3);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4), 0 8px 20px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
 .profile-image:hover {
     transform: scale(1.05) rotate(5deg);
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 12px 30px rgba(0, 100, 150, 0.4);
-}
-.profile-image::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    animation: pulse-ring 2s infinite;
-}
-@keyframes pulse-ring {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.5;
-    }
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 12px 30px var(--shadow-color);
 }
 .profile-image img {
     width: 100%;
@@ -199,7 +238,7 @@ body::after {
 }
 .bio {
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--text-color);
     line-height: 1.8;
     max-width: 450px;
     margin: 0 auto 25px;
@@ -221,12 +260,13 @@ body::after {
 .stat-number {
     font-size: 28px;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-color);
     text-shadow: 2px 2px 8px rgba(0, 150, 200, 0.6);
 }
 .stat-label {
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-color);
+    opacity: 0.8;
     margin-top: 5px;
 }
 
@@ -241,61 +281,28 @@ body::after {
     z-index: 5;
 }
 .social-link-button {
-    background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(240,248,255,0.95) 100%);
-    color: #333333;
+    background: var(--card-bg);
+    color: var(--card-text);
     padding: 22px 28px;
     border-radius: 20px;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 20px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 5px 20px rgba(0, 100, 150, 0.2);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 20px var(--shadow-color);
     position: relative;
     overflow: hidden;
 }
-.social-link-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: left 0.5s ease;
-}
-.social-link-button:hover::before {
-    left: 100%;
-}
-.social-link-button::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.5), transparent);
-    transform: rotate(45deg);
-    animation: shine 3s infinite;
-}
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
 .social-link-button:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 100, 150, 0.35);
-    animation: wave 0.5s ease;
-}
-@keyframes wave {
-    0%, 100% { transform: translateY(-5px) scale(1.02); }
-    25% { transform: translateY(-7px) scale(1.03) rotate(1deg); }
-    75% { transform: translateY(-7px) scale(1.03) rotate(-1deg); }
+    box-shadow: 0 10px 30px var(--shadow-color);
 }
 .arrow {
     font-size: 24px;
-    color: #666;
+    color: var(--card-text);
+    opacity: 0.6;
     margin-left: auto;
     transition: transform 0.3s ease;
 }
@@ -335,11 +342,6 @@ body::after {
     border-radius: 10px;
     padding: 10px 12px;
     min-width: 60px;
-    animation: breathe 2s ease-in-out infinite;
-}
-@keyframes breathe {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
 }
 .timer-value {
     font-size: 22px;
@@ -363,15 +365,6 @@ body::after {
     flex-shrink: 0;
     color: #ffffff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    animation: icon-glow 2s ease-in-out infinite alternate;
-}
-@keyframes icon-glow {
-    from {
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    to {
-        box-shadow: 0 4px 20px rgba(100, 200, 255, 0.6);
-    }
 }
 .instagram-btn .icon-wrapper {
     background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
@@ -395,12 +388,13 @@ body::after {
 .platform-name {
     font-size: 19px;
     font-weight: bold;
-    color: #222222;
+    color: var(--card-text);
     margin-bottom: 4px;
 }
 .link-subtitle {
     font-size: 14px;
-    color: #666666;
+    color: var(--card-text);
+    opacity: 0.7;
 }
 
 /* Футер */
@@ -408,17 +402,20 @@ body::after {
     margin-top: 50px;
     padding: 20px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-color);
+    opacity: 0.85;
     font-size: 14px;
 }
 .footer-sub {
     margin-top: 8px;
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
+    opacity: 0.7;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
+    .theme-toggle { top: 20px; right: 20px; width: 45px; height: 45px; }
+    .visitor-counter { top: 20px; left: 20px; padding: 10px 16px; font-size: 14px; }
     .container { padding: 30px 15px; }
     .username { font-size: 26px; }
     .bio { font-size: 14px; }
