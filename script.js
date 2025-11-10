@@ -1,3 +1,11 @@
+// Preloader - скрывается после загрузки страницы
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        preloader.classList.add('hidden');
+    }, 1500); // Задержка 1.5 секунды для эффекта
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Анимация появления кнопок
     const elements = document.querySelectorAll('.social-link-button');
@@ -20,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Счётчик посетителей
     initVisitorCounter();
+
+    // Анимация статистики соцсетей
+    animateSocialStats();
 });
 
 // Переключение темы
@@ -67,6 +78,43 @@ function animateCounter(target) {
             clearInterval(timer);
         }
         counterElement.textContent = current.toLocaleString();
+    }, stepTime);
+}
+
+// Анимация статистики соцсетей
+function animateSocialStats() {
+    const statCards = document.querySelectorAll('.stat-count');
+    
+    const observerOptions = {
+        threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                animateStatCount(entry.target, target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    statCards.forEach(card => observer.observe(card));
+}
+
+function animateStatCount(element, target) {
+    let current = 0;
+    const increment = Math.ceil(target / 60);
+    const duration = 2000;
+    const stepTime = duration / (target / increment);
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = current.toLocaleString();
     }, stepTime);
 }
 
