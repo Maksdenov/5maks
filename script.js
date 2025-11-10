@@ -171,7 +171,7 @@ function updateSeasonAndTime() {
 }
 
 // ============================================
-//   СЕЗОННЫЕ АНИМАЦИИ
+//   СЕЗОННЫЕ АНИМАЦИИ (МЕДЛЕННЕЕ!)
 // ============================================
 
 function addSeasonalAnimations(season) {
@@ -179,47 +179,47 @@ function addSeasonalAnimations(season) {
     container.innerHTML = ''; // Очищаем
     
     if (season === 'winter') {
-        // Снежинки
+        // Снежинки - МЕДЛЕННЕЕ
         for (let i = 0; i < 30; i++) {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
             snowflake.textContent = '❄';
             snowflake.style.left = Math.random() * 100 + '%';
-            snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            snowflake.style.animationDelay = Math.random() * 2 + 's';
+            snowflake.style.animationDuration = (Math.random() * 5 + 8) + 's'; // 8-13 секунд
+            snowflake.style.animationDelay = Math.random() * 3 + 's';
             container.appendChild(snowflake);
         }
     } else if (season === 'spring') {
-        // Лепестки
+        // Лепестки - МЕДЛЕННЕЕ
         for (let i = 0; i < 20; i++) {
             const petal = document.createElement('div');
             petal.classList.add('petal');
             petal.textContent = '🌸';
             petal.style.left = Math.random() * 100 + '%';
-            petal.style.animationDuration = (Math.random() * 4 + 3) + 's';
-            petal.style.animationDelay = Math.random() * 2 + 's';
+            petal.style.animationDuration = (Math.random() * 6 + 8) + 's'; // 8-14 секунд
+            petal.style.animationDelay = Math.random() * 3 + 's';
             container.appendChild(petal);
         }
     } else if (season === 'summer') {
-        // Световые частицы
+        // Световые частицы - МЕДЛЕННЕЕ
         for (let i = 0; i < 25; i++) {
             const particle = document.createElement('div');
             particle.classList.add('light-particle');
             particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDuration = (Math.random() * 5 + 3) + 's';
-            particle.style.animationDelay = Math.random() * 3 + 's';
+            particle.style.animationDuration = (Math.random() * 8 + 10) + 's'; // 10-18 секунд
+            particle.style.animationDelay = Math.random() * 4 + 's';
             container.appendChild(particle);
         }
     } else if (season === 'autumn') {
-        // Листья
+        // Листья - МЕДЛЕННЕЕ
         for (let i = 0; i < 25; i++) {
             const leaf = document.createElement('div');
             leaf.classList.add('leaf');
             const leafTypes = ['🍂', '🍁', '🍃'];
             leaf.textContent = leafTypes[Math.floor(Math.random() * leafTypes.length)];
             leaf.style.left = Math.random() * 100 + '%';
-            leaf.style.animationDuration = (Math.random() * 4 + 3) + 's';
-            leaf.style.animationDelay = Math.random() * 2 + 's';
+            leaf.style.animationDuration = (Math.random() * 6 + 10) + 's'; // 10-16 секунд
+            leaf.style.animationDelay = Math.random() * 3 + 's';
             container.appendChild(leaf);
         }
     }
