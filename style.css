@@ -36,62 +36,25 @@ body {
 }
 
 /* Динамические градиенты для сезонов и времени суток */
+body.winter.morning { background: linear-gradient(135deg, #E0F7FF 0%, #A8DAFF 50%, #FFE5B4 100%); }
+body.winter.day { background: linear-gradient(135deg, #D4F1FF 0%, #87CEEB 50%, #FFFFFF 100%); }
+body.winter.evening { background: linear-gradient(135deg, #4A5F8C 0%, #8B7DAF 50%, #D4A5D4 100%); }
+body.winter.night { background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 50%, #415A77 100%); }
 
-/* ЗИМА */
-body.winter.morning { 
-    background: linear-gradient(135deg, #E0F7FF 0%, #A8DAFF 50%, #FFE5B4 100%);
-}
-body.winter.day { 
-    background: linear-gradient(135deg, #D4F1FF 0%, #87CEEB 50%, #FFFFFF 100%);
-}
-body.winter.evening { 
-    background: linear-gradient(135deg, #4A5F8C 0%, #8B7DAF 50%, #D4A5D4 100%);
-}
-body.winter.night { 
-    background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 50%, #415A77 100%);
-}
+body.spring.morning { background: linear-gradient(135deg, #FFE5E5 0%, #FFC8DD 50%, #A8E6CF 100%); }
+body.spring.day { background: linear-gradient(135deg, #C1FFC1 0%, #7FD8BE 50%, #FFD6E8 100%); }
+body.spring.evening { background: linear-gradient(135deg, #FFAFCC 0%, #FFC8A8 50%, #FFDAB9 100%); }
+body.spring.night { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%); }
 
-/* ВЕСНА */
-body.spring.morning { 
-    background: linear-gradient(135deg, #FFE5E5 0%, #FFC8DD 50%, #A8E6CF 100%);
-}
-body.spring.day { 
-    background: linear-gradient(135deg, #C1FFC1 0%, #7FD8BE 50%, #FFD6E8 100%);
-}
-body.spring.evening { 
-    background: linear-gradient(135deg, #FFAFCC 0%, #FFC8A8 50%, #FFDAB9 100%);
-}
-body.spring.night { 
-    background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
-}
+body.summer.morning { background: linear-gradient(135deg, #FFF4A3 0%, #FFD700 50%, #87CEEB 100%); }
+body.summer.day { background: linear-gradient(135deg, #87CEEB 0%, #00BFFF 50%, #FFD700 100%); }
+body.summer.evening { background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA07A 100%); }
+body.summer.night { background: linear-gradient(135deg, #0A1828 0%, #1E3A5F 50%, #2E5F8F 100%); }
 
-/* ЛЕТО */
-body.summer.morning { 
-    background: linear-gradient(135deg, #FFF4A3 0%, #FFD700 50%, #87CEEB 100%);
-}
-body.summer.day { 
-    background: linear-gradient(135deg, #87CEEB 0%, #00BFFF 50%, #FFD700 100%);
-}
-body.summer.evening { 
-    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA07A 100%);
-}
-body.summer.night { 
-    background: linear-gradient(135deg, #0A1828 0%, #1E3A5F 50%, #2E5F8F 100%);
-}
-
-/* ОСЕНЬ */
-body.autumn.morning { 
-    background: linear-gradient(135deg, #FFD89B 0%, #FFB366 50%, #FFA07A 100%);
-}
-body.autumn.day { 
-    background: linear-gradient(135deg, #FFB84D 0%, #FF9F1C 50%, #D66853 100%);
-}
-body.autumn.evening { 
-    background: linear-gradient(135deg, #E63946 0%, #F77F00 50%, #FCBF49 100%);
-}
-body.autumn.night { 
-    background: linear-gradient(135deg, #2C1810 0%, #4A2511 50%, #6B3410 100%);
-}
+body.autumn.morning { background: linear-gradient(135deg, #FFD89B 0%, #FFB366 50%, #FFA07A 100%); }
+body.autumn.day { background: linear-gradient(135deg, #FFB84D 0%, #FF9F1C 50%, #D66853 100%); }
+body.autumn.evening { background: linear-gradient(135deg, #E63946 0%, #F77F00 50%, #FCBF49 100%); }
+body.autumn.night { background: linear-gradient(135deg, #2C1810 0%, #4A2511 50%, #6B3410 100%); }
 
 body::after {
     content: '';
@@ -105,7 +68,6 @@ body::after {
     z-index: 0;
 }
 
-/* Preloader */
 .preloader {
     position: fixed;
     top: 0;
@@ -162,7 +124,6 @@ body::after {
     letter-spacing: 2px;
 }
 
-/* Переключатель темы */
 .theme-toggle {
     position: fixed;
     top: 30px;
@@ -180,16 +141,17 @@ body::after {
     transition: all 0.3s ease;
     border: 2px solid rgba(255, 255, 255, 0.3);
 }
+
 .theme-toggle:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1) rotate(20deg);
 }
+
 .theme-toggle i {
     font-size: 22px;
     color: #fff;
 }
 
-/* Счётчик посетителей */
 .visitor-counter {
     position: fixed;
     top: 30px;
@@ -204,17 +166,18 @@ body::after {
     z-index: 1000;
     border: 2px solid rgba(255, 255, 255, 0.3);
 }
+
 .visitor-counter i {
     font-size: 18px;
     color: #fff;
 }
+
 .visitor-counter span {
     font-size: 16px;
     font-weight: bold;
     color: #fff;
 }
 
-/* Сезонные анимации */
 .season-animations {
     position: fixed;
     top: 0;
@@ -226,7 +189,6 @@ body::after {
     overflow: hidden;
 }
 
-/* Анимация снега (зима) */
 .snowflake {
     position: absolute;
     top: -10%;
@@ -236,12 +198,12 @@ body::after {
     animation: snowfall linear infinite;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
+
 @keyframes snowfall {
     0% { top: -10%; opacity: 0.8; }
     100% { top: 110%; opacity: 0.3; }
 }
 
-/* Анимация лепестков (весна) */
 .petal {
     position: absolute;
     top: -10%;
@@ -249,20 +211,12 @@ body::after {
     opacity: 0.7;
     animation: petalfall linear infinite;
 }
+
 @keyframes petalfall {
-    0% { 
-        top: -10%; 
-        opacity: 0.7;
-        transform: rotate(0deg);
-    }
-    100% { 
-        top: 110%; 
-        opacity: 0.2;
-        transform: rotate(360deg);
-    }
+    0% { top: -10%; opacity: 0.7; transform: rotate(0deg); }
+    100% { top: 110%; opacity: 0.2; transform: rotate(360deg); }
 }
 
-/* Анимация световых частиц (лето) */
 .light-particle {
     position: absolute;
     width: 4px;
@@ -271,21 +225,13 @@ body::after {
     border-radius: 50%;
     animation: float-light 8s infinite ease-in-out;
 }
+
 @keyframes float-light {
-    0%, 100% { 
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% { 
-        transform: translateY(-80vh) translateX(30px);
-        opacity: 0;
-    }
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-80vh) translateX(30px); opacity: 0; }
 }
 
-/* Анимация листьев (осень) */
 .leaf {
     position: absolute;
     top: -10%;
@@ -293,20 +239,11 @@ body::after {
     opacity: 0.8;
     animation: leaffall linear infinite;
 }
+
 @keyframes leaffall {
-    0% { 
-        top: -10%; 
-        opacity: 0.8;
-        transform: rotate(0deg) translateX(0);
-    }
-    50% {
-        transform: translateX(50px);
-    }
-    100% { 
-        top: 110%; 
-        opacity: 0.3;
-        transform: rotate(720deg) translateX(-30px);
-    }
+    0% { top: -10%; opacity: 0.8; transform: rotate(0deg) translateX(0); }
+    50% { transform: translateX(50px); }
+    100% { top: 110%; opacity: 0.3; transform: rotate(720deg) translateX(-30px); }
 }
 
 .container {
@@ -319,17 +256,18 @@ body::after {
     filter: drop-shadow(0 20px 50px var(--shadow-color));
 }
 
-/* Профиль */
 .profile-section {
     margin-bottom: 40px;
     position: relative;
     z-index: 5;
     animation: fadeInDown 0.8s ease-out;
 }
+
 @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 .profile-image {
     width: 130px;
     height: 130px;
@@ -342,15 +280,18 @@ body::after {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
+
 .profile-image:hover {
     transform: scale(1.05) rotate(5deg);
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 12px 30px var(--shadow-color);
 }
+
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .username {
     font-size: 32px;
     font-weight: bold;
@@ -363,10 +304,12 @@ body::after {
     background-clip: text;
     animation: rainbow-flow 3s linear infinite;
 }
+
 @keyframes rainbow-flow {
     0% { background-position: 0% center; }
     100% { background-position: 200% center; }
 }
+
 .bio {
     font-size: 15px;
     color: var(--text-color);
@@ -377,7 +320,6 @@ body::after {
     text-shadow: 1px 1px 5px rgba(0, 100, 150, 0.4);
 }
 
-/* Статистика */
 .stats {
     display: flex;
     justify-content: center;
@@ -385,15 +327,18 @@ body::after {
     margin-top: 25px;
     flex-wrap: wrap;
 }
+
 .stat-item {
     text-align: center;
 }
+
 .stat-number {
     font-size: 28px;
     font-weight: bold;
     color: var(--text-color);
     text-shadow: 2px 2px 8px rgba(0, 150, 200, 0.6);
 }
+
 .stat-label {
     font-size: 13px;
     color: var(--text-color);
@@ -401,7 +346,6 @@ body::after {
     margin-top: 5px;
 }
 
-/* Кнопки */
 .links-section {
     display: flex;
     flex-direction: column;
@@ -411,6 +355,7 @@ body::after {
     position: relative;
     z-index: 5;
 }
+
 .social-link-button {
     background: var(--card-bg);
     color: var(--card-text);
@@ -426,10 +371,12 @@ body::after {
     position: relative;
     overflow: hidden;
 }
+
 .social-link-button:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 30px var(--shadow-color);
 }
+
 .arrow {
     font-size: 24px;
     color: var(--card-text);
@@ -437,21 +384,29 @@ body::after {
     margin-left: auto;
     transition: transform 0.3s ease;
 }
+
 .social-link-button:hover .arrow {
     transform: translateX(5px);
 }
-.telegram-btn .icon-wrapper {
-    background: linear-gradient(135deg, #36aee2, #0088cc);
-}
+
+.telegram-btn .icon-wrapper { background: linear-gradient(135deg, #36aee2, #0088cc); }
+.instagram-btn .icon-wrapper { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
+.tiktok-btn .icon-wrapper { background: linear-gradient(135deg, #00f2ea, #ff0050); }
+.youtube-btn .icon-wrapper { background: linear-gradient(135deg, #ff0000, #cc0000); }
+.twitter-btn .icon-wrapper { background: linear-gradient(135deg, #1da1f2, #0d8bd9); }
+.funpay-btn .icon-wrapper { background: linear-gradient(135deg, #FF6B35, #FF8C42, #FFA07A); }
+
 .disabled-btn {
     background: rgba(180, 180, 180, 0.6);
     opacity: 0.75;
     cursor: not-allowed;
     pointer-events: none;
 }
+
 .disabled-btn .icon-wrapper {
     background: linear-gradient(135deg, #999999, #666666);
 }
+
 .disabled-btn .link-subtitle {
     font-weight: bold;
     color: #888888;
@@ -459,12 +414,14 @@ body::after {
     letter-spacing: 1px;
     margin-bottom: 12px;
 }
+
 .countdown-timer {
     display: flex;
     gap: 12px;
     margin-top: 12px;
     justify-content: flex-start;
 }
+
 .timer-block {
     display: flex;
     flex-direction: column;
@@ -474,17 +431,20 @@ body::after {
     padding: 10px 12px;
     min-width: 60px;
 }
+
 .timer-value {
     font-size: 22px;
     font-weight: bold;
     color: #333333;
     line-height: 1;
 }
+
 .timer-label {
     font-size: 11px;
     color: #666666;
     margin-top: 5px;
 }
+
 .icon-wrapper {
     width: 60px;
     height: 60px;
@@ -497,38 +457,25 @@ body::after {
     color: #ffffff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-.instagram-btn .icon-wrapper {
-    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
-}
-.tiktok-btn .icon-wrapper {
-    background: linear-gradient(135deg, #00f2ea, #ff0050);
-}
-.youtube-btn .icon-wrapper {
-    background: linear-gradient(135deg, #ff0000, #cc0000);
-}
-.twitter-btn .icon-wrapper {
-    background: linear-gradient(135deg, #1da1f2, #0d8bd9);
-}
-.funpay-btn .icon-wrapper {
-    background: linear-gradient(135deg, #FF6B35, #FF8C42, #FFA07A);
-}
+
 .link-content {
     flex: 1;
     text-align: left;
 }
+
 .platform-name {
     font-size: 19px;
     font-weight: bold;
     color: var(--card-text);
     margin-bottom: 4px;
 }
+
 .link-subtitle {
     font-size: 14px;
     color: var(--card-text);
     opacity: 0.7;
 }
 
-/* Футер */
 .footer {
     margin-top: 50px;
     padding: 20px;
@@ -537,13 +484,66 @@ body::after {
     opacity: 0.85;
     font-size: 14px;
 }
+
 .footer-sub {
     margin-top: 8px;
     font-size: 13px;
     opacity: 0.7;
 }
 
-/* Адаптивность */
+/* СЕЗОННЫЕ УКРАШЕНИЯ */
+body.winter .profile-image::before { content: '🎅'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 45px; z-index: 10; animation: bounce 2s ease-in-out infinite; }
+body.winter .profile-image::after { content: '❄️ ❄️ ❄️'; position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 20px; white-space: nowrap; animation: rotate-slow 10s linear infinite; }
+
+body.spring .profile-image::before { content: '🌸'; position: absolute; top: -10px; left: -10px; font-size: 35px; z-index: 10; animation: float-flower 3s ease-in-out infinite; }
+body.spring .profile-image::after { content: '🦋'; position: absolute; top: -20px; right: -20px; font-size: 30px; animation: flutter 4s ease-in-out infinite; }
+
+body.summer .profile-image::before { content: '😎'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 80px; z-index: 10; opacity: 0.3; pointer-events: none; }
+body.summer .profile-image::after { content: '☀️'; position: absolute; top: -25px; right: -25px; font-size: 40px; animation: rotate-sun 8s linear infinite; }
+
+body.autumn .profile-image::before { content: '🍂'; position: absolute; top: -15px; left: -15px; font-size: 35px; z-index: 10; animation: leaf-fall 3s ease-in-out infinite; }
+body.autumn .profile-image::after { content: '🎃'; position: absolute; bottom: -20px; right: -20px; font-size: 35px; animation: pumpkin-glow 2s ease-in-out infinite; }
+
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-10px); } }
+@keyframes rotate-slow { 0% { transform: translateX(-50%) rotate(0deg); } 100% { transform: translateX(-50%) rotate(360deg); } }
+@keyframes float-flower { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-8px) rotate(15deg); } }
+@keyframes flutter { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(5px, -5px); } 75% { transform: translate(-5px, 5px); } }
+@keyframes rotate-sun { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes leaf-fall { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(10px) rotate(20deg); } }
+@keyframes pumpkin-glow { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.1); filter: brightness(1.3); } }
+
+body.winter .profile-image { border-color: #A8DAFF; box-shadow: 0 0 30px rgba(168, 218, 255, 0.6), 0 8px 20px rgba(168, 218, 255, 0.4); }
+body.spring .profile-image { border-color: #FFC8DD; box-shadow: 0 0 30px rgba(255, 200, 221, 0.6), 0 8px 20px rgba(255, 200, 221, 0.4); }
+body.summer .profile-image { border-color: #FFD700; box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 8px 20px rgba(255, 215, 0, 0.4); }
+body.autumn .profile-image { border-color: #FF9F1C; box-shadow: 0 0 30px rgba(255, 159, 28, 0.6), 0 8px 20px rgba(255, 159, 28, 0.4); }
+
+/* СПЕЦИАЛЬНЫЕ СОБЫТИЯ */
+body.special-newyear .profile-image::before { content: '🎄'; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 50px; z-index: 10; animation: christmas-tree 3s ease-in-out infinite; }
+body.special-newyear .profile-image::after { content: '🎆'; position: absolute; top: -25px; right: -25px; font-size: 35px; animation: fireworks 2s ease-in-out infinite; }
+
+body.special-halloween .profile-image::before { content: '🎃'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 90px; z-index: 10; opacity: 0.4; animation: spooky-glow 2s ease-in-out infinite; }
+body.special-halloween .profile-image::after { content: '🦇'; position: absolute; top: -30px; right: -30px; font-size: 35px; animation: bat-fly 3s ease-in-out infinite; }
+
+body.special-valentine .profile-image::before { content: '💘'; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 45px; z-index: 10; animation: heart-beat 1.5s ease-in-out infinite; }
+body.special-valentine .profile-image::after { content: '💕'; position: absolute; bottom: -20px; right: -20px; font-size: 35px; animation: float-hearts 3s ease-in-out infinite; }
+
+body.special-birthday .profile-image::before { content: '🎂'; position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 50px; z-index: 10; animation: cake-celebrate 2s ease-in-out infinite; }
+body.special-birthday .profile-image::after { content: '🎉'; position: absolute; top: -30px; right: -30px; font-size: 40px; animation: party-confetti 1.5s ease-in-out infinite; }
+
+@keyframes christmas-tree { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.1); } }
+@keyframes fireworks { 0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; } 50% { transform: scale(1.3) rotate(180deg); opacity: 0.7; } }
+@keyframes spooky-glow { 0%, 100% { opacity: 0.3; filter: brightness(1); } 50% { opacity: 0.6; filter: brightness(1.5) hue-rotate(20deg); } }
+@keyframes bat-fly { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-15px) rotate(-15deg); } }
+@keyframes heart-beat { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.2); } }
+@keyframes float-hearts { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes cake-celebrate { 0%, 100% { transform: translateX(-50%) rotate(0deg); } 25% { transform: translateX(-50%) rotate(-10deg); } 75% { transform: translateX(-50%) rotate(10deg); } }
+@keyframes party-confetti { 0%, 100% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.2); } }
+
+body.special-newyear .profile-image { border-color: #FFD700; box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 8px 25px rgba(255, 0, 0, 0.5); }
+body.special-halloween .profile-image { border-color: #FF6B00; box-shadow: 0 0 40px rgba(255, 107, 0, 0.8), 0 8px 25px rgba(138, 43, 226, 0.5); }
+body.special-valentine .profile-image { border-color: #FF69B4; box-shadow: 0 0 40px rgba(255, 105, 180, 0.8), 0 8px 25px rgba(255, 20, 147, 0.5); }
+body.special-birthday .profile-image { border-color: #FF1493; box-shadow: 0 0 40px rgba(255, 20, 147, 0.8), 0 8px 25px rgba(255, 215, 0, 0.5); }
+
 @media (max-width: 768px) {
     .theme-toggle { top: 20px; right: 20px; width: 45px; height: 45px; }
     .visitor-counter { top: 20px; left: 20px; padding: 10px 16px; font-size: 14px; }
@@ -561,4 +561,4 @@ body::after {
     .timer-block { padding: 8px 10px; min-width: 52px; }
     .timer-value { font-size: 18px; }
     .timer-label { font-size: 10px; }
-}
+        }
