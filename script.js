@@ -1,227 +1,107 @@
-// Определение текущего сезона, времени суток и специальных событий
-function getSeasonAndTime() {
-    const now = new Date();
-    const month = now.getMonth(); // 0-11
-    const day = now.getDate(); // 1-31
-    const hour = now.getHours(); // 0-23
-    
-    // Проверка специальных дат (приоритет выше сезонов)
-    
-    // Новый Год (31 дек - 7 янв)
-    if ((month === 11 && day === 31) || (month === 0 && day <= 7)) {
-        document.body.classList.add('special-newyear');
-    }
-    
-    // Halloween (31 октября)
-    if (month === 9 && day === 31) {
-        document.body.classList.add('special-halloween');
-    }
-    
-    // День Святого Валентина (14 февраля)
-    if (month === 1 && day === 14) {
-        document.body.classList.add('special-valentine');
-    }
-    
-    // День Рождения 5Maks (26 апреля)
-    if (month === 3 && day === 26) {
-        document.body.classList.add('special-birthday');
-    }
-    
-    // Определяем сезон
-    let season;
-    if (month === 11 || month === 0 || month === 1) {
-        season = 'winter'; // декабрь, январь, февраль
-    } else if (month >= 2 && month <= 4) {
-        season = 'spring'; // март, апрель, май
-    } else if (month >= 5 && month <= 7) {
-        season = 'summer'; // июнь, июль, август
-    } else {
-        season = 'autumn'; // сентябрь, октябрь, ноябрь
-    }
-    
-    // Определяем время суток
-    let timeOfDay;
-    if (hour >= 6 && hour < 12) {
-        timeOfDay = 'morning'; // утро: 6:00 - 11:59
-    } else if (hour >= 12 && hour < 18) {
-        timeOfDay = 'day'; // день: 12:00 - 17:59
-    } else if (hour >= 18 && hour < 22) {
-        timeOfDay = 'evening'; // вечер: 18:00 - 21:59
-    } else {
-        timeOfDay = 'night'; // ночь: 22:00 - 5:59
-    }
-    
-    return { season, timeOfDay };
-}
+// ============================================
+//   EPIC CINEMATIC PRELOADER
+// ============================================
 
-// Применяем фон на основе сезона и времени
-function applySeasonalBackground() {
-    const { season, timeOfDay } = getSeasonAndTime();
-    const body = document.body;
-    
-    // Удаляем все предыдущие классы сезонов и времени
-    body.classList.remove('winter', 'spring', 'summer', 'autumn', 'morning', 'day', 'evening', 'night');
-    
-    // Добавляем текущие классы
-    body.classList.add(season, timeOfDay);
-    
-    console.log(`Текущий сезон: ${season}, Время суток: ${timeOfDay}`);
-    
-    // Запускаем соответствующую анимацию
-    createSeasonalAnimation(season);
-}
-
-// Создаём анимации для каждого сезона
-function createSeasonalAnimation(season) {
-    const container = document.getElementById('season-animations');
-    container.innerHTML = ''; // Очищаем старые анимации
-    
-    if (season === 'winter') {
-        createSnowflakes(container);
-    } else if (season === 'spring') {
-        createPetals(container);
-    } else if (season === 'summer') {
-        createLightParticles(container);
-    } else if (season === 'autumn') {
-        createLeaves(container);
-    }
-}
-
-// ЗИМА: Снежинки
-function createSnowflakes(container) {
-    const symbols = ['❅', '❆', '❄'];
-    for (let i = 0; i < 30; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-        snowflake.style.left = Math.random() * 100 + '%';
-        snowflake.style.fontSize = (Math.random() * 1.5 + 0.8) + 'em';
-        snowflake.style.animationDuration = (Math.random() * 5 + 8) + 's';
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(snowflake);
-    }
-}
-
-// ВЕСНА: Лепестки сакуры
-function createPetals(container) {
-    const petals = ['🌸', '🌺', '🌼'];
-    for (let i = 0; i < 25; i++) {
-        const petal = document.createElement('div');
-        petal.className = 'petal';
-        petal.textContent = petals[Math.floor(Math.random() * petals.length)];
-        petal.style.left = Math.random() * 100 + '%';
-        petal.style.fontSize = (Math.random() * 1 + 0.8) + 'em';
-        petal.style.animationDuration = (Math.random() * 6 + 10) + 's';
-        petal.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(petal);
-    }
-}
-
-// ЛЕТО: Световые частицы
-function createLightParticles(container) {
-    for (let i = 0; i < 40; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'light-particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.bottom = '0';
-        particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
-        particle.style.animationDelay = Math.random() * 8 + 's';
-        container.appendChild(particle);
-    }
-}
-
-// ОСЕНЬ: Падающие листья
-function createLeaves(container) {
-    const leaves = ['🍂', '🍁'];
-    for (let i = 0; i < 30; i++) {
-        const leaf = document.createElement('div');
-        leaf.className = 'leaf';
-        leaf.textContent = leaves[Math.floor(Math.random() * leaves.length)];
-        leaf.style.left = Math.random() * 100 + '%';
-        leaf.style.fontSize = (Math.random() * 1.2 + 0.9) + 'em';
-        leaf.style.animationDuration = (Math.random() * 6 + 8) + 's';
-        leaf.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(leaf);
-    }
-}
-
-// Preloader с прогресс-баром
 window.addEventListener('load', function() {
     let progress = 0;
-    const progressBar = document.getElementById('progress-bar');
-    const progressPercent = document.getElementById('progress-percent');
+    const progressFill = document.getElementById('progress-fill');
+    const progressPercent = document.getElementById('progress-percent-cinematic');
     const preloader = document.getElementById('preloader');
+    
+    // Все сцены
+    const stages = {
+        1: document.getElementById('stage-1'),
+        2: document.getElementById('stage-2'),
+        3: document.getElementById('stage-3'),
+        4: document.getElementById('stage-4'),
+        5: document.getElementById('stage-5')
+    };
+    
+    // Показываем первую сцену
+    stages[1].classList.add('active');
     
     const interval = setInterval(() => {
         if (progress < 100) {
-            const increment = Math.random() * 15 + 5;
+            // Рандомный прирост для реалистичности
+            const increment = Math.random() * 8 + 4;
             progress += increment;
             
             if (progress > 100) progress = 100;
             
-            progressBar.style.width = progress + '%';
-            progressPercent.textContent = Math.floor(progress);
+            // Обновляем прогресс-бар
+            if (progressFill) {
+                progressFill.style.width = progress + '%';
+            }
+            progressPercent.textContent = Math.floor(progress) + '%';
+            
+            // Переключаем сцены по проценту загрузки
+            if (progress >= 0 && progress < 20) {
+                showStage(1); // Вспышка света
+            } else if (progress >= 20 && progress < 40) {
+                showStage(2); // Космос со звёздами
+            } else if (progress >= 40 && progress < 60) {
+                showStage(3); // Гиперпространство
+            } else if (progress >= 60 && progress < 80) {
+                showStage(4); // Планета 5Maks
+            } else if (progress >= 80) {
+                showStage(5); // Взрыв логотипа
+            }
+            
         } else {
             clearInterval(interval);
             
+            // Финал — плавное исчезновение preloader
             setTimeout(() => {
                 preloader.classList.add('hidden');
-            }, 300);
+            }, 1500);
         }
     }, 100);
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Применяем сезонный фон и анимации
-    applySeasonalBackground();
     
-    // Анимация появления кнопок
-    const elements = document.querySelectorAll('.social-link-button');
-    elements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            element.style.transition = 'all 0.5s ease';
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
-
-    // Загрузка темы из localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-        document.getElementById('theme-icon').className = 'fas fa-sun';
+    function showStage(num) {
+        Object.keys(stages).forEach(key => {
+            stages[key].classList.remove('active');
+        });
+        stages[num].classList.add('active');
     }
-
-    // Счётчик посетителей
-    initVisitorCounter();
 });
 
-// Переключение темы
+// ============================================
+//   ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ
+// ============================================
+
 function toggleTheme() {
-    const body = document.body;
+    document.body.classList.toggle('dark-theme');
     const icon = document.getElementById('theme-icon');
     
-    body.classList.toggle('dark-theme');
-    
-    if (body.classList.contains('dark-theme')) {
-        icon.className = 'fas fa-sun';
+    if (document.body.classList.contains('dark-theme')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
         localStorage.setItem('theme', 'dark');
     } else {
-        icon.className = 'fas fa-moon';
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
         localStorage.setItem('theme', 'light');
     }
 }
 
-// Счётчик посетителей
-function initVisitorCounter() {
-    let count = localStorage.getItem('visitorCount');
+// Загрузка сохранённой темы
+window.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme');
+    const icon = document.getElementById('theme-icon');
     
-    if (!count) {
-        count = 0;
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
     }
-    
+});
+
+// ============================================
+//   СЧЁТЧИК ПОСЕТИТЕЛЕЙ
+// ============================================
+
+function initVisitorCounter() {
+    let count = localStorage.getItem('visitorCount') || 0;
     count = parseInt(count) + 1;
     localStorage.setItem('visitorCount', count);
     
@@ -229,56 +109,193 @@ function initVisitorCounter() {
 }
 
 function animateCounter(target) {
-    const counterElement = document.getElementById('visitor-count');
+    const counter = document.getElementById('visitor-count');
     let current = 0;
-    const increment = Math.ceil(target / 50);
-    const duration = 1500;
-    const stepTime = duration / (target / increment);
-    
+    const increment = target / 50;
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            current = target;
+            counter.textContent = target;
             clearInterval(timer);
+        } else {
+            counter.textContent = Math.floor(current);
         }
-        counterElement.textContent = current.toLocaleString();
-    }, stepTime);
+    }, 20);
 }
 
-// Эффект клика для кнопок
-document.querySelectorAll('.social-link-button:not(.disabled-btn)').forEach(button => {
-    button.addEventListener('click', function(e) {
-        this.style.transform = 'scale(0.97)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 100);
-    });
-});
+// Запуск счётчика
+initVisitorCounter();
 
-// Таймер до 1 января 2026 года
-function updateCountdown() {
-    const targetDate = new Date('January 1, 2026 00:00:00').getTime();
-    const now = new Date().getTime();
-    const distance = targetDate - now;
+// ============================================
+//   ДИНАМИЧЕСКИЕ СЕЗОНЫ И ВРЕМЯ СУТОК
+// ============================================
+
+function updateSeasonAndTime() {
+    const now = new Date();
+    const month = now.getMonth(); // 0-11
+    const hour = now.getHours(); // 0-23
     
-    if (distance < 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
+    // Определяем сезон
+    let season;
+    if (month >= 11 || month <= 1) {
+        season = 'winter'; // Декабрь, Январь, Февраль
+    } else if (month >= 2 && month <= 4) {
+        season = 'spring'; // Март, Апрель, Май
+    } else if (month >= 5 && month <= 7) {
+        season = 'summer'; // Июнь, Июль, Август
+    } else {
+        season = 'autumn'; // Сентябрь, Октябрь, Ноябрь
     }
     
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Определяем время суток
+    let timeOfDay;
+    if (hour >= 6 && hour < 12) {
+        timeOfDay = 'morning'; // Утро 6:00-11:59
+    } else if (hour >= 12 && hour < 18) {
+        timeOfDay = 'day'; // День 12:00-17:59
+    } else if (hour >= 18 && hour < 22) {
+        timeOfDay = 'evening'; // Вечер 18:00-21:59
+    } else {
+        timeOfDay = 'night'; // Ночь 22:00-5:59
+    }
     
-    document.getElementById('days').textContent = String(days).padStart(2, '0');
-    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    // Применяем классы к body
+    document.body.className = '';
+    document.body.classList.add(season, timeOfDay);
+    
+    // Добавляем сезонные анимации
+    addSeasonalAnimations(season);
+    
+    // Проверяем специальные события
+    checkSpecialEvents(now);
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+// ============================================
+//   СЕЗОННЫЕ АНИМАЦИИ
+// ============================================
+
+function addSeasonalAnimations(season) {
+    const container = document.getElementById('season-animations');
+    container.innerHTML = ''; // Очищаем
+    
+    if (season === 'winter') {
+        // Снежинки
+        for (let i = 0; i < 30; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            snowflake.style.animationDelay = Math.random() * 2 + 's';
+            container.appendChild(snowflake);
+        }
+    } else if (season === 'spring') {
+        // Лепестки
+        for (let i = 0; i < 20; i++) {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.textContent = '🌸';
+            petal.style.left = Math.random() * 100 + '%';
+            petal.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            petal.style.animationDelay = Math.random() * 2 + 's';
+            container.appendChild(petal);
+        }
+    } else if (season === 'summer') {
+        // Световые частицы
+        for (let i = 0; i < 25; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('light-particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            container.appendChild(particle);
+        }
+    } else if (season === 'autumn') {
+        // Листья
+        for (let i = 0; i < 25; i++) {
+            const leaf = document.createElement('div');
+            leaf.classList.add('leaf');
+            const leafTypes = ['🍂', '🍁', '🍃'];
+            leaf.textContent = leafTypes[Math.floor(Math.random() * leafTypes.length)];
+            leaf.style.left = Math.random() * 100 + '%';
+            leaf.style.animationDuration = (Math.random() * 4 + 3) + 's';
+            leaf.style.animationDelay = Math.random() * 2 + 's';
+            container.appendChild(leaf);
+        }
+    }
+}
+
+// ============================================
+//   СПЕЦИАЛЬНЫЕ СОБЫТИЯ
+// ============================================
+
+function checkSpecialEvents(now) {
+    const month = now.getMonth() + 1; // 1-12
+    const day = now.getDate();
+    
+    // Новый Год (31 декабря - 7 января)
+    if ((month === 12 && day >= 31) || (month === 1 && day <= 7)) {
+        document.body.classList.add('special-newyear');
+    }
+    
+    // Хэллоуин (31 октября)
+    if (month === 10 && day === 31) {
+        document.body.classList.add('special-halloween');
+    }
+    
+    // День Святого Валентина (14 февраля)
+    if (month === 2 && day === 14) {
+        document.body.classList.add('special-valentine');
+    }
+    
+    // День Рождения (установи свою дату!)
+    // Пример: 15 марта
+    if (month === 3 && day === 15) {
+        document.body.classList.add('special-birthday');
+    }
+}
+
+// ============================================
+//   ТАЙМЕР ОБРАТНОГО ОТСЧЁТА
+// ============================================
+
+function initCountdown() {
+    // Дата запуска (измени на свою!)
+    const launchDate = new Date('2025-12-31T23:59:59').getTime();
+    
+    const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+        
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }, 1000);
+}
+
+// ============================================
+//   ИНИЦИАЛИЗАЦИЯ
+// ============================================
+
+window.addEventListener('DOMContentLoaded', function() {
+    updateSeasonAndTime();
+    initCountdown();
+    
+    // Обновляем сезон каждый час
+    setInterval(updateSeasonAndTime, 3600000);
+});
