@@ -48,6 +48,70 @@ body::after {
     z-index: 0;
 }
 
+/* Preloader (загрузочный экран) */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 2px;
+    animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
 /* Переключатель темы */
 .theme-toggle {
     position: fixed;
@@ -270,6 +334,57 @@ body::after {
     margin-top: 5px;
 }
 
+/* Живая статистика соцсетей */
+.social-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 30px auto 40px;
+    max-width: 550px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.stat-icon {
+    font-size: 32px;
+    color: var(--card-text);
+}
+
+.stat-info {
+    text-align: center;
+}
+
+.stat-count {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--card-text);
+    margin-bottom: 5px;
+}
+
+.stat-platform {
+    font-size: 12px;
+    color: var(--card-text);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* Кнопки */
 .links-section {
     display: flex;
@@ -421,6 +536,7 @@ body::after {
     .bio { font-size: 14px; }
     .stats { gap: 20px; }
     .stat-number { font-size: 24px; }
+    .social-stats { grid-template-columns: repeat(2, 1fr); }
     .social-link-button { padding: 20px 22px; }
     .icon-wrapper { width: 55px; height: 55px; font-size: 26px; }
     .platform-name { font-size: 17px; }
