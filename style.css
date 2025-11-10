@@ -5,7 +5,6 @@
 }
 
 :root {
-    --bg-color: url('images/background.png');
     --text-color: #ffffff;
     --card-bg: rgba(255, 255, 255, 0.97);
     --card-text: #333333;
@@ -14,7 +13,6 @@
 }
 
 body.dark-theme {
-    --bg-color: url('images/background.png');
     --text-color: #ffffff;
     --card-bg: rgba(30, 30, 30, 0.95);
     --card-text: #ffffff;
@@ -24,8 +22,9 @@ body.dark-theme {
 
 body {
     font-family: 'Arial', 'Segoe UI', sans-serif;
-    background: var(--bg-color) no-repeat center center fixed;
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text-color);
     min-height: 100vh;
     display: flex;
@@ -33,7 +32,65 @@ body {
     align-items: center;
     overflow-x: hidden;
     position: relative;
-    transition: all 0.3s ease;
+    transition: background 1s ease-in-out;
+}
+
+/* Динамические градиенты для сезонов и времени суток */
+
+/* ЗИМА */
+body.winter.morning { 
+    background: linear-gradient(135deg, #E0F7FF 0%, #A8DAFF 50%, #FFE5B4 100%);
+}
+body.winter.day { 
+    background: linear-gradient(135deg, #D4F1FF 0%, #87CEEB 50%, #FFFFFF 100%);
+}
+body.winter.evening { 
+    background: linear-gradient(135deg, #4A5F8C 0%, #8B7DAF 50%, #D4A5D4 100%);
+}
+body.winter.night { 
+    background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 50%, #415A77 100%);
+}
+
+/* ВЕСНА */
+body.spring.morning { 
+    background: linear-gradient(135deg, #FFE5E5 0%, #FFC8DD 50%, #A8E6CF 100%);
+}
+body.spring.day { 
+    background: linear-gradient(135deg, #C1FFC1 0%, #7FD8BE 50%, #FFD6E8 100%);
+}
+body.spring.evening { 
+    background: linear-gradient(135deg, #FFAFCC 0%, #FFC8A8 50%, #FFDAB9 100%);
+}
+body.spring.night { 
+    background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
+}
+
+/* ЛЕТО */
+body.summer.morning { 
+    background: linear-gradient(135deg, #FFF4A3 0%, #FFD700 50%, #87CEEB 100%);
+}
+body.summer.day { 
+    background: linear-gradient(135deg, #87CEEB 0%, #00BFFF 50%, #FFD700 100%);
+}
+body.summer.evening { 
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA07A 100%);
+}
+body.summer.night { 
+    background: linear-gradient(135deg, #0A1828 0%, #1E3A5F 50%, #2E5F8F 100%);
+}
+
+/* ОСЕНЬ */
+body.autumn.morning { 
+    background: linear-gradient(135deg, #FFD89B 0%, #FFB366 50%, #FFA07A 100%);
+}
+body.autumn.day { 
+    background: linear-gradient(135deg, #FFB84D 0%, #FF9F1C 50%, #D66853 100%);
+}
+body.autumn.evening { 
+    background: linear-gradient(135deg, #E63946 0%, #F77F00 50%, #FCBF49 100%);
+}
+body.autumn.night { 
+    background: linear-gradient(135deg, #2C1810 0%, #4A2511 50%, #6B3410 100%);
 }
 
 body::after {
@@ -48,7 +105,7 @@ body::after {
     z-index: 0;
 }
 
-/* Preloader с прогресс-баром */
+/* Preloader */
 .preloader {
     position: fixed;
     top: 0;
@@ -157,16 +214,19 @@ body::after {
     color: #fff;
 }
 
-/* Снег */
-.snowflakes {
+/* Сезонные анимации */
+.season-animations {
     position: fixed;
-    top: -10%;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 110%;
+    height: 100%;
     pointer-events: none;
     z-index: 10;
+    overflow: hidden;
 }
+
+/* Анимация снега (зима) */
 .snowflake {
     position: absolute;
     top: -10%;
@@ -180,60 +240,74 @@ body::after {
     0% { top: -10%; opacity: 0.8; }
     100% { top: 110%; opacity: 0.3; }
 }
-.snowflake:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; }
-.snowflake:nth-child(2) { left: 15%; animation-duration: 12s; animation-delay: 1s; font-size: 1.2em; }
-.snowflake:nth-child(3) { left: 25%; animation-duration: 9s; animation-delay: 2s; }
-.snowflake:nth-child(4) { left: 35%; animation-duration: 11s; animation-delay: 0.5s; font-size: 1.8em; }
-.snowflake:nth-child(5) { left: 45%; animation-duration: 13s; animation-delay: 1.5s; }
-.snowflake:nth-child(6) { left: 55%; animation-duration: 10s; animation-delay: 2.5s; font-size: 1.3em; }
-.snowflake:nth-child(7) { left: 65%; animation-duration: 14s; animation-delay: 0s; }
-.snowflake:nth-child(8) { left: 75%; animation-duration: 11s; animation-delay: 3s; font-size: 1.6em; }
-.snowflake:nth-child(9) { left: 85%; animation-duration: 9s; animation-delay: 1s; }
-.snowflake:nth-child(10) { left: 95%; animation-duration: 12s; animation-delay: 2s; font-size: 1.4em; }
-.snowflake:nth-child(11) { left: 10%; animation-duration: 13s; animation-delay: 3.5s; }
-.snowflake:nth-child(12) { left: 20%; animation-duration: 10s; animation-delay: 1.5s; font-size: 1.7em; }
-.snowflake:nth-child(13) { left: 30%; animation-duration: 11s; animation-delay: 2.5s; }
-.snowflake:nth-child(14) { left: 40%; animation-duration: 14s; animation-delay: 0.5s; font-size: 1.3em; }
-.snowflake:nth-child(15) { left: 50%; animation-duration: 12s; animation-delay: 3s; }
-.snowflake:nth-child(16) { left: 60%; animation-duration: 9s; animation-delay: 1s; font-size: 1.5em; }
-.snowflake:nth-child(17) { left: 70%; animation-duration: 13s; animation-delay: 2s; }
-.snowflake:nth-child(18) { left: 80%; animation-duration: 10s; animation-delay: 0s; font-size: 1.8em; }
-.snowflake:nth-child(19) { left: 90%; animation-duration: 11s; animation-delay: 1.5s; }
-.snowflake:nth-child(20) { left: 8%; animation-duration: 12s; animation-delay: 2.5s; font-size: 1.4em; }
 
-/* Плавающие частицы */
-.particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-.particle {
+/* Анимация лепестков (весна) */
+.petal {
     position: absolute;
-    width: 8px;
-    height: 8px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.9), transparent);
+    top: -10%;
+    font-size: 1.2em;
+    opacity: 0.7;
+    animation: petalfall linear infinite;
+}
+@keyframes petalfall {
+    0% { 
+        top: -10%; 
+        opacity: 0.7;
+        transform: rotate(0deg);
+    }
+    100% { 
+        top: 110%; 
+        opacity: 0.2;
+        transform: rotate(360deg);
+    }
+}
+
+/* Анимация световых частиц (лето) */
+.light-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(255, 255, 150, 0.9), transparent);
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    animation: float-particles 15s infinite ease-in-out;
+    animation: float-light 8s infinite ease-in-out;
 }
-@keyframes float-particles {
-    0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+@keyframes float-light {
+    0%, 100% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(-80vh) translateX(30px);
+        opacity: 0;
+    }
 }
-.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-.particle:nth-child(2) { left: 25%; animation-delay: 2s; }
-.particle:nth-child(3) { left: 40%; animation-delay: 4s; }
-.particle:nth-child(4) { left: 55%; animation-delay: 1s; }
-.particle:nth-child(5) { left: 70%; animation-delay: 3s; }
-.particle:nth-child(6) { left: 85%; animation-delay: 5s; }
-.particle:nth-child(7) { left: 15%; animation-delay: 6s; }
-.particle:nth-child(8) { left: 90%; animation-delay: 7s; }
+
+/* Анимация листьев (осень) */
+.leaf {
+    position: absolute;
+    top: -10%;
+    font-size: 1.3em;
+    opacity: 0.8;
+    animation: leaffall linear infinite;
+}
+@keyframes leaffall {
+    0% { 
+        top: -10%; 
+        opacity: 0.8;
+        transform: rotate(0deg) translateX(0);
+    }
+    50% {
+        transform: translateX(50px);
+    }
+    100% { 
+        top: 110%; 
+        opacity: 0.3;
+        transform: rotate(720deg) translateX(-30px);
+    }
+}
 
 .container {
     max-width: 650px;
@@ -487,5 +561,4 @@ body::after {
     .timer-block { padding: 8px 10px; min-width: 52px; }
     .timer-value { font-size: 18px; }
     .timer-label { font-size: 10px; }
-    .snowflake { font-size: 1.2em; }
-    }
+}
