@@ -796,3 +796,364 @@ body::after {
     .epic-logo { font-size: 60px; }
     .cinematic-progress { width: 80%; }
 }
+
+
+/* ============================================
+   СЕЗОННЫЕ УКРАШЕНИЯ ПРОФИЛЯ (ЗАБЫЛ ДОБАВИТЬ!)
+   ============================================ */
+
+/* Зима */
+body.winter .profile-image::before { 
+    content: '🎅'; 
+    position: absolute; 
+    top: -15px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 45px; 
+    z-index: 10; 
+    animation: bounce 2s ease-in-out infinite; 
+}
+
+body.winter .profile-image::after { 
+    content: '❄️ ❄️ ❄️'; 
+    position: absolute; 
+    top: -30px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 20px; 
+    white-space: nowrap; 
+    animation: rotate-slow 10s linear infinite; 
+}
+
+/* Весна */
+body.spring .profile-image::before { 
+    content: '🌸'; 
+    position: absolute; 
+    top: -10px; 
+    left: -10px; 
+    font-size: 35px; 
+    z-index: 10; 
+    animation: float-flower 3s ease-in-out infinite; 
+}
+
+body.spring .profile-image::after { 
+    content: '🦋'; 
+    position: absolute; 
+    top: -20px; 
+    right: -20px; 
+    font-size: 30px; 
+    animation: flutter 4s ease-in-out infinite; 
+}
+
+/* Лето */
+body.summer .profile-image::before { 
+    content: '😎'; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 80px; 
+    z-index: 10; 
+    opacity: 0.3; 
+    pointer-events: none; 
+}
+
+body.summer .profile-image::after { 
+    content: '☀️'; 
+    position: absolute; 
+    top: -25px; 
+    right: -25px; 
+    font-size: 40px; 
+    animation: rotate-sun 8s linear infinite; 
+}
+
+/* Осень */
+body.autumn .profile-image::before { 
+    content: '🍂'; 
+    position: absolute; 
+    top: -15px; 
+    left: -15px; 
+    font-size: 35px; 
+    z-index: 10; 
+    animation: leaf-fall 3s ease-in-out infinite; 
+}
+
+body.autumn .profile-image::after { 
+    content: '🎃'; 
+    position: absolute; 
+    bottom: -20px; 
+    right: -20px; 
+    font-size: 35px; 
+    animation: pumpkin-glow 2s ease-in-out infinite; 
+}
+
+/* Анимации для сезонных элементов */
+@keyframes bounce { 
+    0%, 100% { transform: translateX(-50%) translateY(0); } 
+    50% { transform: translateX(-50%) translateY(-10px); } 
+}
+
+@keyframes rotate-slow { 
+    0% { transform: translateX(-50%) rotate(0deg); } 
+    100% { transform: translateX(-50%) rotate(360deg); } 
+}
+
+@keyframes float-flower { 
+    0%, 100% { transform: translateY(0) rotate(0deg); } 
+    50% { transform: translateY(-8px) rotate(15deg); } 
+}
+
+@keyframes flutter { 
+    0%, 100% { transform: translate(0, 0); } 
+    25% { transform: translate(5px, -5px); } 
+    75% { transform: translate(-5px, 5px); } 
+}
+
+@keyframes rotate-sun { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
+}
+
+@keyframes leaf-fall { 
+    0%, 100% { transform: translateY(0) rotate(0deg); } 
+    50% { transform: translateY(10px) rotate(20deg); } 
+}
+
+@keyframes pumpkin-glow { 
+    0%, 100% { transform: scale(1); filter: brightness(1); } 
+    50% { transform: scale(1.1); filter: brightness(1.3); } 
+}
+
+/* Цвета рамки профиля по сезонам */
+body.winter .profile-image { 
+    border-color: #A8DAFF; 
+    box-shadow: 0 0 30px rgba(168, 218, 255, 0.6), 0 8px 20px rgba(168, 218, 255, 0.4); 
+}
+
+body.spring .profile-image { 
+    border-color: #FFC8DD; 
+    box-shadow: 0 0 30px rgba(255, 200, 221, 0.6), 0 8px 20px rgba(255, 200, 221, 0.4); 
+}
+
+body.summer .profile-image { 
+    border-color: #FFD700; 
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 8px 20px rgba(255, 215, 0, 0.4); 
+}
+
+body.autumn .profile-image { 
+    border-color: #FF9F1C; 
+    box-shadow: 0 0 30px rgba(255, 159, 28, 0.6), 0 8px 20px rgba(255, 159, 28, 0.4); 
+}
+
+/* СПЕЦИАЛЬНЫЕ СОБЫТИЯ */
+body.special-newyear .profile-image::before { 
+    content: '🎄'; 
+    position: absolute; 
+    top: -20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 50px; 
+    z-index: 10; 
+    animation: christmas-tree 3s ease-in-out infinite; 
+}
+
+body.special-newyear .profile-image::after { 
+    content: '🎆'; 
+    position: absolute; 
+    top: -25px; 
+    right: -25px; 
+    font-size: 35px; 
+    animation: fireworks 2s ease-in-out infinite; 
+}
+
+body.special-halloween .profile-image::before { 
+    content: '🎃'; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 90px; 
+    z-index: 10; 
+    opacity: 0.4; 
+    animation: spooky-glow 2s ease-in-out infinite; 
+}
+
+body.special-halloween .profile-image::after { 
+    content: '🦇'; 
+    position: absolute; 
+    top: -30px; 
+    right: -30px; 
+    font-size: 35px; 
+    animation: bat-fly 3s ease-in-out infinite; 
+}
+
+body.special-valentine .profile-image::before { 
+    content: '💘'; 
+    position: absolute; 
+    top: -20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 45px; 
+    z-index: 10; 
+    animation: heart-beat 1.5s ease-in-out infinite; 
+}
+
+body.special-valentine .profile-image::after { 
+    content: '💕'; 
+    position: absolute; 
+    bottom: -20px; 
+    right: -20px; 
+    font-size: 35px; 
+    animation: float-hearts 3s ease-in-out infinite; 
+}
+
+body.special-birthday .profile-image::before { 
+    content: '🎂'; 
+    position: absolute; 
+    top: -25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 50px; 
+    z-index: 10; 
+    animation: cake-celebrate 2s ease-in-out infinite; 
+}
+
+body.special-birthday .profile-image::after { 
+    content: '🎉'; 
+    position: absolute; 
+    top: -30px; 
+    right: -30px; 
+    font-size: 40px; 
+    animation: party-confetti 1.5s ease-in-out infinite; 
+}
+
+/* Анимации для спецсобытий */
+@keyframes christmas-tree { 
+    0%, 100% { transform: translateX(-50%) scale(1); } 
+    50% { transform: translateX(-50%) scale(1.1); } 
+}
+
+@keyframes fireworks { 
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; } 
+    50% { transform: scale(1.3) rotate(180deg); opacity: 0.7; } 
+}
+
+@keyframes spooky-glow { 
+    0%, 100% { opacity: 0.3; filter: brightness(1); } 
+    50% { opacity: 0.6; filter: brightness(1.5) hue-rotate(20deg); } 
+}
+
+@keyframes bat-fly { 
+    0%, 100% { transform: translateX(0) rotate(0deg); } 
+    50% { transform: translateX(-15px) rotate(-15deg); } 
+}
+
+@keyframes heart-beat { 
+    0%, 100% { transform: translateX(-50%) scale(1); } 
+    50% { transform: translateX(-50%) scale(1.2); } 
+}
+
+@keyframes float-hearts { 
+    0%, 100% { transform: translateY(0); } 
+    50% { transform: translateY(-10px); } 
+}
+
+@keyframes cake-celebrate { 
+    0%, 100% { transform: translateX(-50%) rotate(0deg); } 
+    25% { transform: translateX(-50%) rotate(-10deg); } 
+    75% { transform: translateX(-50%) rotate(10deg); } 
+}
+
+@keyframes party-confetti { 
+    0%, 100% { transform: rotate(0deg) scale(1); } 
+    50% { transform: rotate(180deg) scale(1.2); } 
+}
+
+body.special-newyear .profile-image { 
+    border-color: #FFD700; 
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 8px 25px rgba(255, 0, 0, 0.5); 
+}
+
+body.special-halloween .profile-image { 
+    border-color: #FF6B00; 
+    box-shadow: 0 0 40px rgba(255, 107, 0, 0.8), 0 8px 25px rgba(138, 43, 226, 0.5); 
+}
+
+body.special-valentine .profile-image { 
+    border-color: #FF69B4; 
+    box-shadow: 0 0 40px rgba(255, 105, 180, 0.8), 0 8px 25px rgba(255, 20, 147, 0.5); 
+}
+
+body.special-birthday .profile-image { 
+    border-color: #FF1493; 
+    box-shadow: 0 0 40px rgba(255, 20, 147, 0.8), 0 8px 25px rgba(255, 215, 0, 0.5); 
+}
+
+/* Анимации падающих элементов (снежинки, листья) */
+.season-animations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10%;
+    color: #ffffff;
+    font-size: 1.5em;
+    opacity: 0.8;
+    animation: snowfall linear infinite;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes snowfall {
+    0% { top: -10%; opacity: 0.8; }
+    100% { top: 110%; opacity: 0.3; }
+}
+
+.petal {
+    position: absolute;
+    top: -10%;
+    font-size: 1.2em;
+    opacity: 0.7;
+    animation: petalfall linear infinite;
+}
+
+@keyframes petalfall {
+    0% { top: -10%; opacity: 0.7; transform: rotate(0deg); }
+    100% { top: 110%; opacity: 0.2; transform: rotate(360deg); }
+}
+
+.light-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(255, 255, 150, 0.9), transparent);
+    border-radius: 50%;
+    animation: float-light 8s infinite ease-in-out;
+}
+
+@keyframes float-light {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-80vh) translateX(30px); opacity: 0; }
+}
+
+.leaf {
+    position: absolute;
+    top: -10%;
+    font-size: 1.3em;
+    opacity: 0.8;
+    animation: leaffall linear infinite;
+}
+
+@keyframes leaffall {
+    0% { top: -10%; opacity: 0.8; transform: rotate(0deg) translateX(0); }
+    50% { transform: translateX(50px); }
+    100% { top: 110%; opacity: 0.3; transform: rotate(720deg) translateX(-30px); }
+}
