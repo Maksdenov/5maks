@@ -394,6 +394,8 @@ body::after {
 .tiktok-btn .icon-wrapper { background: linear-gradient(135deg, #00f2ea, #ff0050); }
 .youtube-btn .icon-wrapper { background: linear-gradient(135deg, #ff0000, #cc0000); }
 .twitter-btn .icon-wrapper { background: linear-gradient(135deg, #1da1f2, #0d8bd9); }
+.discord-btn .icon-wrapper { background: linear-gradient(135deg, #5865F2, #404EED); }
+.spotify-btn .icon-wrapper { background: linear-gradient(135deg, #1DB954, #1ED760); }
 .funpay-btn .icon-wrapper { background: linear-gradient(135deg, #FF6B35, #FF8C42, #FFA07A); }
 
 .disabled-btn {
@@ -561,4 +563,4 @@ body.special-birthday .profile-image { border-color: #FF1493; box-shadow: 0 0 40
     .timer-block { padding: 8px 10px; min-width: 52px; }
     .timer-value { font-size: 18px; }
     .timer-label { font-size: 10px; }
-        }
+}
