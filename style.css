@@ -43,25 +43,21 @@ body {
    СЕЗОННЫЕ ГРАДИЕНТЫ ФОНА
    ============================================ */
 
-/* Зима */
 body.winter.morning { background: linear-gradient(135deg, #E0F7FF 0%, #A8DAFF 50%, #FFE5B4 100%); }
 body.winter.day { background: linear-gradient(135deg, #D4F1FF 0%, #87CEEB 50%, #FFFFFF 100%); }
 body.winter.evening { background: linear-gradient(135deg, #4A5F8C 0%, #8B7DAF 50%, #D4A5D4 100%); }
 body.winter.night { background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 50%, #415A77 100%); }
 
-/* Весна */
 body.spring.morning { background: linear-gradient(135deg, #FFE5E5 0%, #FFC8DD 50%, #A8E6CF 100%); }
 body.spring.day { background: linear-gradient(135deg, #C1FFC1 0%, #7FD8BE 50%, #FFD6E8 100%); }
 body.spring.evening { background: linear-gradient(135deg, #FFAFCC 0%, #FFC8A8 50%, #FFDAB9 100%); }
 body.spring.night { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%); }
 
-/* Лето */
 body.summer.morning { background: linear-gradient(135deg, #FFF4A3 0%, #FFD700 50%, #87CEEB 100%); }
 body.summer.day { background: linear-gradient(135deg, #87CEEB 0%, #00BFFF 50%, #FFD700 100%); }
 body.summer.evening { background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA07A 100%); }
 body.summer.night { background: linear-gradient(135deg, #0A1828 0%, #1E3A5F 50%, #2E5F8F 100%); }
 
-/* Осень */
 body.autumn.morning { background: linear-gradient(135deg, #FFD89B 0%, #FFB366 50%, #FFA07A 100%); }
 body.autumn.day { background: linear-gradient(135deg, #FFB84D 0%, #FF9F1C 50%, #D66853 100%); }
 body.autumn.evening { background: linear-gradient(135deg, #E63946 0%, #F77F00 50%, #FCBF49 100%); }
@@ -572,15 +568,78 @@ body::after {
     transform: translateX(5px);
 }
 
-/* Градиенты кнопок */
-.telegram-btn .icon-wrapper { background: linear-gradient(135deg, #36aee2, #0088cc); }
-.instagram-btn .icon-wrapper { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
-.tiktok-btn .icon-wrapper { background: linear-gradient(135deg, #00f2ea, #ff0050); }
-.youtube-btn .icon-wrapper { background: linear-gradient(135deg, #ff0000, #cc0000); }
-.twitter-btn .icon-wrapper { background: linear-gradient(135deg, #1da1f2, #0d8bd9); }
-.discord-btn .icon-wrapper { background: linear-gradient(135deg, #5865F2, #404EED); }
-.spotify-btn .icon-wrapper { background: linear-gradient(135deg, #1DB954, #1ED760); }
-.funpay-btn .icon-wrapper { background: linear-gradient(135deg, #FF6B35, #FF8C42, #FFA07A); }
+/* ============================================
+   ЦВЕТНЫЕ РАМКИ ДЛЯ ВСЕХ КНОПОК
+   ============================================ */
+
+.telegram-btn {
+    border: 2px solid rgba(54, 174, 226, 0.6) !important;
+}
+
+.instagram-btn {
+    border: 2px solid rgba(221, 42, 123, 0.6) !important;
+}
+
+.tiktok-btn {
+    border: 2px solid rgba(0, 242, 234, 0.6) !important;
+}
+
+.youtube-btn {
+    border: 2px solid rgba(255, 0, 0, 0.6) !important;
+}
+
+.twitter-btn {
+    border: 2px solid rgba(29, 161, 242, 0.6) !important;
+}
+
+.discord-btn {
+    border: 2px solid rgba(88, 101, 242, 0.6) !important;
+}
+
+.spotify-btn {
+    border: 2px solid rgba(29, 185, 84, 0.6) !important;
+}
+
+.funpay-btn {
+    border: 2px solid rgba(255, 107, 53, 0.6) !important;
+}
+
+.donate-btn {
+    border: 2px solid rgba(255, 61, 61, 0.7) !important;
+}
+
+/* Градиенты иконок */
+.telegram-btn .icon-wrapper { 
+    background: linear-gradient(135deg, #36aee2, #0088cc); 
+}
+
+.instagram-btn .icon-wrapper { 
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); 
+}
+
+.tiktok-btn .icon-wrapper { 
+    background: linear-gradient(135deg, #00f2ea, #ff0050); 
+}
+
+.youtube-btn .icon-wrapper { 
+    background: linear-gradient(135deg, #ff0000, #cc0000); 
+}
+
+.twitter-btn .icon-wrapper { 
+    background: linear-gradient(135deg, #1da1f2, #0d8bd9); 
+}
+
+.discord-btn .icon-wrapper { 
+    background: linear-gradient(135deg, #5865F2, #404EED); 
+}
+
+.spotify-btn .icon-wrapper { 
+    background: linear-gradient(135deg, #1DB954, #1ED760); 
+}
+
+.funpay-btn .icon-wrapper { 
+    background: linear-gradient(135deg, #FF6B35, #FF8C42, #FFA07A); 
+}
 
 /* Donate кнопка */
 .donate-btn .icon-wrapper {
@@ -589,8 +648,14 @@ body::after {
 }
 
 @keyframes donate-pulse {
-    0%, 100% { box-shadow: 0 4px 10px rgba(255, 61, 61, 0.3); transform: scale(1); }
-    50% { box-shadow: 0 4px 20px rgba(255, 61, 61, 0.6); transform: scale(1.05); }
+    0%, 100% { 
+        box-shadow: 0 4px 10px rgba(255, 61, 61, 0.3); 
+        transform: scale(1); 
+    }
+    50% { 
+        box-shadow: 0 4px 20px rgba(255, 61, 61, 0.6); 
+        transform: scale(1.05); 
+    }
 }
 
 .donate-btn:hover .icon-wrapper i {
@@ -602,10 +667,6 @@ body::after {
     25% { transform: scale(1.2); }
     50% { transform: scale(0.95); }
     75% { transform: scale(1.15); }
-}
-
-.donate-btn {
-    border: 2px solid rgba(255, 61, 61, 0.5);
 }
 
 .donate-btn::before {
@@ -626,6 +687,43 @@ body::after {
 .donate-btn .platform-name {
     font-weight: 900;
     letter-spacing: 0.5px;
+}
+
+/* Усиленное свечение при наведении */
+.telegram-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(54, 174, 226, 0.4);
+}
+
+.instagram-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(221, 42, 123, 0.4);
+}
+
+.tiktok-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(0, 242, 234, 0.4);
+}
+
+.youtube-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.twitter-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(29, 161, 242, 0.4);
+}
+
+.discord-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(88, 101, 242, 0.4);
+}
+
+.spotify-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(29, 185, 84, 0.4);
+}
+
+.funpay-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(255, 107, 53, 0.4);
+}
+
+.donate-btn:hover {
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 25px rgba(255, 61, 61, 0.6);
 }
 
 /* Анимации иконок */
@@ -829,7 +927,7 @@ body::after {
     height: 4px;
     background: radial-gradient(circle, rgba(255, 255, 150, 0.9), transparent);
     border-radius: 50%;
-    animation: float-light 8s infinite ease-in-out;
+    animation: float-light 12s infinite ease-in-out;
 }
 
 @keyframes float-light {
@@ -869,14 +967,12 @@ body.winter .profile-image::before {
 }
 
 body.winter .profile-image::after { 
-    content: '❄️ ❄️ ❄️'; 
+    content: '❄️'; 
     position: absolute; 
-    top: -30px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    font-size: 20px; 
-    white-space: nowrap; 
-    animation: rotate-slow 10s linear infinite; 
+    bottom: -20px; 
+    right: -20px; 
+    font-size: 35px; 
+    animation: snowflake-spin 3s linear infinite; 
 }
 
 /* Весна */
@@ -947,9 +1043,9 @@ body.autumn .profile-image::after {
     50% { transform: translateX(-50%) translateY(-10px); } 
 }
 
-@keyframes rotate-slow { 
-    0% { transform: translateX(-50%) rotate(0deg); } 
-    100% { transform: translateX(-50%) rotate(360deg); } 
+@keyframes snowflake-spin { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
 }
 
 @keyframes float-flower { 
@@ -1150,24 +1246,152 @@ body.special-birthday .profile-image {
    ============================================ */
 
 @media (max-width: 768px) {
-    .theme-toggle { top: 20px; right: 20px; width: 45px; height: 45px; }
-    .visitor-counter { top: 20px; left: 20px; padding: 10px 16px; font-size: 14px; }
-    .container { padding: 30px 15px; }
-    .username { font-size: 26px; }
-    .bio { font-size: 14px; }
-    .stats { gap: 20px; }
-    .stat-number { font-size: 24px; }
-    .social-link-button { padding: 20px 22px; }
-    .icon-wrapper { width: 55px; height: 55px; font-size: 26px; }
-    .platform-name { font-size: 17px; }
-    .link-subtitle { font-size: 13px; }
-    .arrow { font-size: 20px; }
-    .countdown-timer { gap: 10px; }
-    .timer-block { padding: 8px 10px; min-width: 52px; }
-    .timer-value { font-size: 18px; }
-    .timer-label { font-size: 10px; }
-    .planet { width: 200px; height: 200px; }
-    .planet-text { font-size: 32px; }
-    .epic-logo { font-size: 60px; }
-    .cinematic-progress { width: 80%; }
+    .theme-toggle { 
+        top: 20px; 
+        right: 20px; 
+        width: 45px; 
+        height: 45px; 
+    }
+    
+    .visitor-counter { 
+        top: 20px; 
+        left: 20px; 
+        padding: 10px 16px; 
+        font-size: 14px; 
+    }
+    
+    .container { 
+        padding: 30px 15px; 
+    }
+    
+    .profile-image {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .username { 
+        font-size: 26px; 
+    }
+    
+    .bio { 
+        font-size: 14px; 
+    }
+    
+    .stats { 
+        gap: 20px; 
+    }
+    
+    .stat-number { 
+        font-size: 24px; 
+    }
+    
+    .social-link-button { 
+        padding: 18px 20px;
+        gap: 15px;
+    }
+    
+    .icon-wrapper { 
+        width: 55px; 
+        height: 55px; 
+        font-size: 26px; 
+    }
+    
+    .platform-name { 
+        font-size: 17px; 
+    }
+    
+    .link-subtitle { 
+        font-size: 13px; 
+    }
+    
+    .arrow { 
+        font-size: 20px; 
+    }
+    
+    .countdown-timer { 
+        gap: 8px; 
+        flex-wrap: wrap;
+    }
+    
+    .timer-block { 
+        padding: 8px 10px; 
+        min-width: 50px; 
+    }
+    
+    .timer-value { 
+        font-size: 18px; 
+    }
+    
+    .timer-label { 
+        font-size: 10px; 
+    }
+    
+    .planet { 
+        width: 200px; 
+        height: 200px; 
+    }
+    
+    .planet-text { 
+        font-size: 32px; 
+    }
+    
+    .epic-logo { 
+        font-size: 60px; 
+    }
+    
+    .cinematic-progress { 
+        width: 85%;
+        bottom: 30px;
+    }
+    
+    .progress-percent-cinematic {
+        font-size: 16px;
+    }
+    
+    /* Уменьшаем эмодзи на мобильных */
+    body.winter .profile-image::before,
+    body.spring .profile-image::before,
+    body.summer .profile-image::after,
+    body.autumn .profile-image::before {
+        font-size: 28px;
+    }
+    
+    body.autumn .profile-image::after,
+    body.winter .profile-image::after,
+    body.spring .profile-image::after {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 10px;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .username {
+        font-size: 24px;
+    }
+    
+    .social-link-button {
+        padding: 16px 18px;
+    }
+    
+    .icon-wrapper {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .platform-name {
+        font-size: 16px;
+    }
+    
+    .footer {
+        font-size: 13px;
+    }
 }
