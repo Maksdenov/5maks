@@ -9,14 +9,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="loading">
-    <!-- Preloader с прогресс-баром -->
+    <!-- EPIC CINEMATIC PRELOADER -->
     <div class="preloader" id="preloader">
-        <div class="preloader-content">
-            <div class="loader-logo">5Maks</div>
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
+        <!-- Чёрный экран с вспышкой -->
+        <div class="cinematic-stage stage-1" id="stage-1">
+            <div class="flash"></div>
+        </div>
+        
+        <!-- Космос со звёздами -->
+        <div class="cinematic-stage stage-2" id="stage-2">
+            <div class="stars-container">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
             </div>
-            <div class="progress-text"><span id="progress-percent">0</span>%</div>
+        </div>
+        
+        <!-- Гиперпространственный туннель -->
+        <div class="cinematic-stage stage-3" id="stage-3">
+            <div class="hyperspace"></div>
+        </div>
+        
+        <!-- Планета 5Maks -->
+        <div class="cinematic-stage stage-4" id="stage-4">
+            <div class="planet">
+                <div class="planet-glow"></div>
+                <div class="planet-text">5Maks</div>
+            </div>
+        </div>
+        
+        <!-- Взрыв логотипа -->
+        <div class="cinematic-stage stage-5" id="stage-5">
+            <div class="logo-explosion">
+                <h1 class="epic-logo">5Maks</h1>
+                <div class="particles">
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Прогресс -->
+        <div class="cinematic-progress">
+            <div class="progress-bar-cinematic">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-percent-cinematic" id="progress-percent-cinematic">0%</div>
         </div>
     </div>
 
