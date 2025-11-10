@@ -1,9 +1,30 @@
-// Preloader - скрывается после загрузки страницы
+// Preloader с прогресс-баром (0-100%)
 window.addEventListener('load', function() {
-    setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        preloader.classList.add('hidden');
-    }, 1500); // Задержка 1.5 секунды для эффекта
+    let progress = 0;
+    const progressBar = document.getElementById('progress-bar');
+    const progressPercent = document.getElementById('progress-percent');
+    const preloader = document.getElementById('preloader');
+    
+    // Симуляция загрузки с реалистичным прогрессом
+    const interval = setInterval(() => {
+        if (progress < 100) {
+            // Увеличиваем прогресс с разной скоростью для реалистичности
+            const increment = Math.random() * 15 + 5; // От 5 до 20
+            progress += increment;
+            
+            if (progress > 100) progress = 100;
+            
+            progressBar.style.width = progress + '%';
+            progressPercent.textContent = Math.floor(progress);
+        } else {
+            clearInterval(interval);
+            
+            // Скрываем preloader после завершения
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 300);
+        }
+    }, 100); // Обновление каждые 100ms
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -28,9 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Счётчик посетителей
     initVisitorCounter();
-
-    // Анимация статистики соцсетей
-    animateSocialStats();
 });
 
 // Переключение темы
@@ -78,43 +96,6 @@ function animateCounter(target) {
             clearInterval(timer);
         }
         counterElement.textContent = current.toLocaleString();
-    }, stepTime);
-}
-
-// Анимация статистики соцсетей
-function animateSocialStats() {
-    const statCards = document.querySelectorAll('.stat-count');
-    
-    const observerOptions = {
-        threshold: 0.5
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
-                animateStatCount(entry.target, target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    statCards.forEach(card => observer.observe(card));
-}
-
-function animateStatCount(element, target) {
-    let current = 0;
-    const increment = Math.ceil(target / 60);
-    const duration = 2000;
-    const stepTime = duration / (target / increment);
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        element.textContent = current.toLocaleString();
     }, stepTime);
 }
 
