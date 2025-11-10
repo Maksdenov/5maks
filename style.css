@@ -48,7 +48,7 @@ body::after {
     z-index: 0;
 }
 
-/* Preloader (загрузочный экран) */
+/* Preloader с прогресс-баром */
 .preloader {
     position: fixed;
     top: 0;
@@ -70,46 +70,39 @@ body::after {
 
 .preloader-content {
     text-align: center;
+    width: 300px;
 }
 
 .loader-logo {
     font-size: 48px;
     font-weight: bold;
     color: #fff;
-    margin-bottom: 30px;
-    animation: pulse 2s ease-in-out infinite;
+    margin-bottom: 40px;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 
-.loader-spinner {
-    width: 60px;
-    height: 60px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #fff;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    animation: spin 1s linear infinite;
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #fff, #a8edea);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.loader-text {
+.progress-text {
     color: #fff;
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: bold;
     letter-spacing: 2px;
-    animation: fadeInOut 2s ease-in-out infinite;
-}
-
-@keyframes fadeInOut {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
 }
 
 /* Переключатель темы */
@@ -334,57 +327,6 @@ body::after {
     margin-top: 5px;
 }
 
-/* Живая статистика соцсетей */
-.social-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    margin: 30px auto 40px;
-    max-width: 550px;
-}
-
-.stat-card {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px var(--shadow-color);
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px var(--shadow-color);
-}
-
-.stat-icon {
-    font-size: 32px;
-    color: var(--card-text);
-}
-
-.stat-info {
-    text-align: center;
-}
-
-.stat-count {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--card-text);
-    margin-bottom: 5px;
-}
-
-.stat-platform {
-    font-size: 12px;
-    color: var(--card-text);
-    opacity: 0.7;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 /* Кнопки */
 .links-section {
     display: flex;
@@ -536,7 +478,6 @@ body::after {
     .bio { font-size: 14px; }
     .stats { gap: 20px; }
     .stat-number { font-size: 24px; }
-    .social-stats { grid-template-columns: repeat(2, 1fr); }
     .social-link-button { padding: 20px 22px; }
     .icon-wrapper { width: 55px; height: 55px; font-size: 26px; }
     .platform-name { font-size: 17px; }
@@ -547,4 +488,4 @@ body::after {
     .timer-value { font-size: 18px; }
     .timer-label { font-size: 10px; }
     .snowflake { font-size: 1.2em; }
-}
+    }
