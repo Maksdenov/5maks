@@ -1,8 +1,31 @@
-// Определение текущего сезона и времени суток
+// Определение текущего сезона, времени суток и специальных событий
 function getSeasonAndTime() {
     const now = new Date();
     const month = now.getMonth(); // 0-11
+    const day = now.getDate(); // 1-31
     const hour = now.getHours(); // 0-23
+    
+    // Проверка специальных дат (приоритет выше сезонов)
+    
+    // Новый Год (31 дек - 7 янв)
+    if ((month === 11 && day === 31) || (month === 0 && day <= 7)) {
+        document.body.classList.add('special-newyear');
+    }
+    
+    // Halloween (31 октября)
+    if (month === 9 && day === 31) {
+        document.body.classList.add('special-halloween');
+    }
+    
+    // День Святого Валентина (14 февраля)
+    if (month === 1 && day === 14) {
+        document.body.classList.add('special-valentine');
+    }
+    
+    // День Рождения 5Maks (26 апреля)
+    if (month === 3 && day === 26) {
+        document.body.classList.add('special-birthday');
+    }
     
     // Определяем сезон
     let season;
