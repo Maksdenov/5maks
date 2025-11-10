@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Preloader (загрузочный экран) -->
+    <!-- Preloader с прогресс-баром -->
     <div class="preloader" id="preloader">
         <div class="preloader-content">
             <div class="loader-logo">5Maks</div>
-            <div class="loader-spinner"></div>
-            <div class="loader-text">Загрузка...</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="progress-text"><span id="progress-percent">0</span>%</div>
         </div>
     </div>
 
@@ -87,38 +89,6 @@
                 <div class="stat-item">
                     <div class="stat-number">24/7</div>
                     <div class="stat-label">Онлайн</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Живая статистика соцсетей -->
-        <div class="social-stats">
-            <div class="stat-card">
-                <i class="fab fa-instagram stat-icon"></i>
-                <div class="stat-info">
-                    <div class="stat-count" data-target="1250">0</div>
-                    <div class="stat-platform">Instagram</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <i class="fab fa-youtube stat-icon"></i>
-                <div class="stat-info">
-                    <div class="stat-count" data-target="5680">0</div>
-                    <div class="stat-platform">YouTube</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <i class="fab fa-tiktok stat-icon"></i>
-                <div class="stat-info">
-                    <div class="stat-count" data-target="3420">0</div>
-                    <div class="stat-platform">TikTok</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <i class="fab fa-telegram stat-icon"></i>
-                <div class="stat-info">
-                    <div class="stat-count" data-target="890">0</div>
-                    <div class="stat-platform">Telegram</div>
                 </div>
             </div>
         </div>
