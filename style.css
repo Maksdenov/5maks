@@ -1,11 +1,29 @@
 /* ============================================
-   БАЗОВЫЕ СТИЛИ И ПЕРЕМЕННЫЕ
+   ОПТИМИЗАЦИЯ ПРОИЗВОДИТЕЛЬНОСТИ
+   ============================================ */
+
+.profile-image,
+.social-link-button,
+.theme-toggle,
+.visitor-counter,
+.season-animations > *,
+.cinematic-stage,
+.particles span {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* ============================================
+   БАЗОВЫЕ СТИЛИ
    ============================================ */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -37,10 +55,18 @@ body {
     overflow-x: hidden;
     position: relative;
     transition: background 1s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 /* ============================================
-   СЕЗОННЫЕ ГРАДИЕНТЫ ФОНА
+   СЕЗОННЫЕ ГРАДИЕНТЫ
    ============================================ */
 
 body.winter.morning { background: linear-gradient(135deg, #E0F7FF 0%, #A8DAFF 50%, #FFE5B4 100%); }
@@ -76,7 +102,7 @@ body::after {
 }
 
 /* ============================================
-   EPIC CINEMATIC PRELOADER
+   PRELOADER
    ============================================ */
 
 .preloader {
@@ -116,7 +142,6 @@ body::after {
     opacity: 1;
 }
 
-/* STAGE 1: Вспышка */
 .stage-1 { background: #000000; }
 
 .flash {
@@ -132,7 +157,6 @@ body::after {
     100% { opacity: 0; transform: scale(3); }
 }
 
-/* STAGE 2: Космос */
 .stage-2 {
     background: radial-gradient(ellipse at center, #1a0033 0%, #000000 100%);
 }
@@ -167,7 +191,6 @@ body::after {
     50% { opacity: 1; transform: scale(1.5); }
 }
 
-/* STAGE 3: Гиперпространство */
 .stage-3 { background: #000033; }
 
 .hyperspace {
@@ -185,7 +208,6 @@ body::after {
     100% { transform: scale(3) rotate(360deg); opacity: 0; }
 }
 
-/* STAGE 4: Планета */
 .stage-4 {
     background: radial-gradient(ellipse at center, #000033 0%, #000000 100%);
 }
@@ -233,7 +255,6 @@ body::after {
     50% { transform: scale(1.1); opacity: 0.8; }
 }
 
-/* STAGE 5: Взрыв логотипа */
 .stage-5 {
     background: radial-gradient(ellipse at center, #667eea 0%, #000000 100%);
 }
@@ -341,7 +362,7 @@ body::after {
     font-weight: bold;
     letter-spacing: 2px;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
+                            }
 
 /* ============================================
    ОСНОВНОЙ КОНТЕНТ
@@ -409,6 +430,12 @@ body::after {
     position: relative;
     z-index: 5;
     filter: drop-shadow(0 20px 50px var(--shadow-color));
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .profile-section {
@@ -446,10 +473,6 @@ body::after {
     height: 100%;
     object-fit: cover;
 }
-
-/* ============================================
-   ПРОДОЛЖЕНИЕ - ПРОФИЛЬ И КОНТЕНТ
-   ============================================ */
 
 .username {
     font-size: 32px;
@@ -569,93 +592,36 @@ body::after {
 }
 
 /* ============================================
-   ЦВЕТНЫЕ РАМКИ ДЛЯ ВСЕХ КНОПОК
+   ЦВЕТНЫЕ РАМКИ КНОПОК
    ============================================ */
 
-.telegram-btn {
-    border: 2px solid rgba(54, 174, 226, 0.6) !important;
-}
+.telegram-btn { border: 2px solid rgba(54, 174, 226, 0.6) !important; }
+.instagram-btn { border: 2px solid rgba(221, 42, 123, 0.6) !important; }
+.tiktok-btn { border: 2px solid rgba(0, 242, 234, 0.6) !important; }
+.youtube-btn { border: 2px solid rgba(255, 0, 0, 0.6) !important; }
+.twitter-btn { border: 2px solid rgba(29, 161, 242, 0.6) !important; }
+.discord-btn { border: 2px solid rgba(88, 101, 242, 0.6) !important; }
+.spotify-btn { border: 2px solid rgba(29, 185, 84, 0.6) !important; }
+.funpay-btn { border: 2px solid rgba(255, 107, 53, 0.6) !important; }
+.donate-btn { border: 2px solid rgba(255, 61, 61, 0.7) !important; }
 
-.instagram-btn {
-    border: 2px solid rgba(221, 42, 123, 0.6) !important;
-}
+.telegram-btn .icon-wrapper { background: linear-gradient(135deg, #36aee2, #0088cc); }
+.instagram-btn .icon-wrapper { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
+.tiktok-btn .icon-wrapper { background: linear-gradient(135deg, #00f2ea, #ff0050); }
+.youtube-btn .icon-wrapper { background: linear-gradient(135deg, #ff0000, #cc0000); }
+.twitter-btn .icon-wrapper { background: linear-gradient(135deg, #1da1f2, #0d8bd9); }
+.discord-btn .icon-wrapper { background: linear-gradient(135deg, #5865F2, #404EED); }
+.spotify-btn .icon-wrapper { background: linear-gradient(135deg, #1DB954, #1ED760); }
+.funpay-btn .icon-wrapper { background: linear-gradient(135deg, #FF6B35, #FF8C42, #FFA07A); }
 
-.tiktok-btn {
-    border: 2px solid rgba(0, 242, 234, 0.6) !important;
-}
-
-.youtube-btn {
-    border: 2px solid rgba(255, 0, 0, 0.6) !important;
-}
-
-.twitter-btn {
-    border: 2px solid rgba(29, 161, 242, 0.6) !important;
-}
-
-.discord-btn {
-    border: 2px solid rgba(88, 101, 242, 0.6) !important;
-}
-
-.spotify-btn {
-    border: 2px solid rgba(29, 185, 84, 0.6) !important;
-}
-
-.funpay-btn {
-    border: 2px solid rgba(255, 107, 53, 0.6) !important;
-}
-
-.donate-btn {
-    border: 2px solid rgba(255, 61, 61, 0.7) !important;
-}
-
-/* Градиенты иконок */
-.telegram-btn .icon-wrapper { 
-    background: linear-gradient(135deg, #36aee2, #0088cc); 
-}
-
-.instagram-btn .icon-wrapper { 
-    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); 
-}
-
-.tiktok-btn .icon-wrapper { 
-    background: linear-gradient(135deg, #00f2ea, #ff0050); 
-}
-
-.youtube-btn .icon-wrapper { 
-    background: linear-gradient(135deg, #ff0000, #cc0000); 
-}
-
-.twitter-btn .icon-wrapper { 
-    background: linear-gradient(135deg, #1da1f2, #0d8bd9); 
-}
-
-.discord-btn .icon-wrapper { 
-    background: linear-gradient(135deg, #5865F2, #404EED); 
-}
-
-.spotify-btn .icon-wrapper { 
-    background: linear-gradient(135deg, #1DB954, #1ED760); 
-}
-
-.funpay-btn .icon-wrapper { 
-    background: linear-gradient(135deg, #FF6B35, #FF8C42, #FFA07A); 
-}
-
-/* Donate кнопка */
 .donate-btn .icon-wrapper {
     background: linear-gradient(135deg, #FF6B6B, #FF3D3D, #FF0000);
     animation: donate-pulse 2s ease-in-out infinite;
 }
 
 @keyframes donate-pulse {
-    0%, 100% { 
-        box-shadow: 0 4px 10px rgba(255, 61, 61, 0.3); 
-        transform: scale(1); 
-    }
-    50% { 
-        box-shadow: 0 4px 20px rgba(255, 61, 61, 0.6); 
-        transform: scale(1.05); 
-    }
+    0%, 100% { box-shadow: 0 4px 10px rgba(255, 61, 61, 0.3); transform: scale(1); }
+    50% { box-shadow: 0 4px 20px rgba(255, 61, 61, 0.6); transform: scale(1.05); }
 }
 
 .donate-btn:hover .icon-wrapper i {
@@ -689,42 +655,16 @@ body::after {
     letter-spacing: 0.5px;
 }
 
-/* Усиленное свечение при наведении */
-.telegram-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(54, 174, 226, 0.4);
-}
-
-.instagram-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(221, 42, 123, 0.4);
-}
-
-.tiktok-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(0, 242, 234, 0.4);
-}
-
-.youtube-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(255, 0, 0, 0.4);
-}
-
-.twitter-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(29, 161, 242, 0.4);
-}
-
-.discord-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(88, 101, 242, 0.4);
-}
-
-.spotify-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(29, 185, 84, 0.4);
-}
-
-.funpay-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(255, 107, 53, 0.4);
-}
-
-.donate-btn:hover {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 25px rgba(255, 61, 61, 0.6);
-}
+/* Свечение при наведении */
+.telegram-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(54, 174, 226, 0.4); }
+.instagram-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(221, 42, 123, 0.4); }
+.tiktok-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(0, 242, 234, 0.4); }
+.youtube-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(255, 0, 0, 0.4); }
+.twitter-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(29, 161, 242, 0.4); }
+.discord-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(88, 101, 242, 0.4); }
+.spotify-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(29, 185, 84, 0.4); }
+.funpay-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 20px rgba(255, 107, 53, 0.4); }
+.donate-btn:hover { box-shadow: 0 10px 30px var(--shadow-color), 0 0 25px rgba(255, 61, 61, 0.6); }
 
 /* Анимации иконок */
 .telegram-btn:hover .icon-wrapper i { animation: telegram-fly 0.6s ease-in-out; }
@@ -879,7 +819,215 @@ body::after {
 }
 
 /* ============================================
-   СЕЗОННЫЕ АНИМАЦИИ И УКРАШЕНИЯ
+   ЛЕГЕНДАРНАЯ КНОПКА ???
+   ============================================ */
+
+.legendary-btn {
+    position: relative;
+    border: 3px solid transparent !important;
+    background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+                linear-gradient(90deg, #FFD700, #FF6B00, #FF1493, #9400D3, #00D4FF, #FFD700) border-box !important;
+    background-size: 200% 100%;
+    animation: legendary-border 3s linear infinite, legendary-glow 2s ease-in-out infinite;
+    overflow: visible !important;
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.6),
+        0 0 60px rgba(255, 20, 147, 0.4),
+        0 5px 20px var(--shadow-color) !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+@keyframes legendary-border {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes legendary-glow {
+    0%, 100% { 
+        box-shadow: 
+            0 0 30px rgba(255, 215, 0, 0.6),
+            0 0 60px rgba(255, 20, 147, 0.4),
+            0 5px 20px var(--shadow-color);
+    }
+    50% { 
+        box-shadow: 
+            0 0 50px rgba(255, 215, 0, 0.9),
+            0 0 90px rgba(255, 20, 147, 0.7),
+            0 10px 40px var(--shadow-color);
+    }
+}
+
+.legendary-btn:hover {
+    transform: translateY(-8px) scale(1.05) !important;
+    box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.9),
+        0 0 100px rgba(255, 20, 147, 0.8),
+        0 15px 50px var(--shadow-color) !important;
+}
+
+.legendary-icon {
+    background: linear-gradient(135deg, #FFD700, #FF6B00, #FF1493, #9400D3) !important;
+    background-size: 200% 200%;
+    animation: legendary-icon-gradient 3s ease infinite, legendary-icon-pulse 1.5s ease-in-out infinite;
+    position: relative;
+    overflow: visible;
+}
+
+@keyframes legendary-icon-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes legendary-icon-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.legendary-icon::before {
+    content: '✨';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    font-size: 20px;
+    animation: legendary-sparkle-1 2s ease-in-out infinite;
+}
+
+.legendary-icon::after {
+    content: '⭐';
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    font-size: 20px;
+    animation: legendary-sparkle-2 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes legendary-sparkle-1 {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.3) rotate(180deg); opacity: 0.7; }
+}
+
+@keyframes legendary-sparkle-2 {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.3) rotate(-180deg); opacity: 0.7; }
+}
+
+.legendary-btn .icon-wrapper i {
+    animation: legendary-icon-rotate 4s linear infinite, legendary-icon-bounce 1s ease-in-out infinite;
+}
+
+@keyframes legendary-icon-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes legendary-icon-bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.15); }
+}
+
+.legendary-btn .platform-name {
+    background: linear-gradient(90deg, #FFD700, #FF6B00, #FF1493, #9400D3, #00D4FF, #FFD700);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: legendary-text-flow 3s linear infinite;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+@keyframes legendary-text-flow {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.legendary-timer {
+    margin-top: 15px !important;
+}
+
+.legendary-timer-block {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 20, 147, 0.3)) !important;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
+    animation: legendary-timer-pulse 2s ease-in-out infinite;
+}
+
+@keyframes legendary-timer-pulse {
+    0%, 100% { 
+        transform: scale(1);
+        border-color: rgba(255, 215, 0, 0.5);
+    }
+    50% { 
+        transform: scale(1.05);
+        border-color: rgba(255, 20, 147, 0.7);
+    }
+}
+
+.legendary-timer-block .timer-value {
+    background: linear-gradient(90deg, #FFD700, #FF1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+}
+
+.legendary-timer-block .timer-label {
+    color: #FFD700;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.legendary-btn::before {
+    content: '✨ ⭐ 💎 ✨';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    white-space: nowrap;
+    animation: legendary-particles-top 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.legendary-btn::after {
+    content: '💫 🌟 💎 💫';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    white-space: nowrap;
+    animation: legendary-particles-bottom 3s ease-in-out infinite 1.5s;
+    pointer-events: none;
+}
+
+@keyframes legendary-particles-top {
+    0%, 100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateX(-50%) translateY(-5px) scale(1.1); opacity: 1; }
+}
+
+@keyframes legendary-particles-bottom {
+    0%, 100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateX(-50%) translateY(5px) scale(1.1); opacity: 1; }
+}
+
+.legendary-btn:hover .legendary-icon {
+    animation: legendary-icon-gradient 3s ease infinite, 
+               legendary-icon-pulse 1.5s ease-in-out infinite, 
+               legendary-hover-shake 0.5s ease-in-out;
+}
+
+@keyframes legendary-hover-shake {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-5deg) scale(1.1); }
+    75% { transform: rotate(5deg) scale(1.1); }
+}
+
+/* ============================================
+   СЕЗОННЫЕ АНИМАЦИИ
    ============================================ */
 
 .season-animations {
@@ -954,7 +1102,6 @@ body::after {
    СЕЗОННЫЕ УКРАШЕНИЯ ПРОФИЛЯ
    ============================================ */
 
-/* Зима */
 body.winter .profile-image::before { 
     content: '🎅'; 
     position: absolute; 
@@ -975,7 +1122,6 @@ body.winter .profile-image::after {
     animation: snowflake-spin 3s linear infinite; 
 }
 
-/* Весна */
 body.spring .profile-image::before { 
     content: '🌸'; 
     position: absolute; 
@@ -995,7 +1141,6 @@ body.spring .profile-image::after {
     animation: flutter 4s ease-in-out infinite; 
 }
 
-/* Лето */
 body.summer .profile-image::before { 
     content: '😎'; 
     position: absolute; 
@@ -1017,7 +1162,6 @@ body.summer .profile-image::after {
     animation: rotate-sun 8s linear infinite; 
 }
 
-/* Осень */
 body.autumn .profile-image::before { 
     content: '🍂'; 
     position: absolute; 
@@ -1037,7 +1181,6 @@ body.autumn .profile-image::after {
     animation: pumpkin-glow 2s ease-in-out infinite; 
 }
 
-/* Анимации элементов */
 @keyframes bounce { 
     0%, 100% { transform: translateX(-50%) translateY(0); } 
     50% { transform: translateX(-50%) translateY(-10px); } 
@@ -1074,7 +1217,6 @@ body.autumn .profile-image::after {
     50% { transform: scale(1.1); filter: brightness(1.3); } 
 }
 
-/* Цвета рамки по сезонам */
 body.winter .profile-image { 
     border-color: #A8DAFF; 
     box-shadow: 0 0 30px rgba(168, 218, 255, 0.6), 0 8px 20px rgba(168, 218, 255, 0.4); 
@@ -1348,6 +1490,25 @@ body.special-birthday .profile-image {
         font-size: 16px;
     }
     
+    /* Легендарная кнопка на мобильных */
+    .legendary-btn::before,
+    .legendary-btn::after {
+        font-size: 14px;
+    }
+    
+    .legendary-timer {
+        gap: 8px;
+    }
+    
+    .legendary-timer-block {
+        min-width: 45px;
+        padding: 6px 8px;
+    }
+    
+    .legendary-btn .platform-name {
+        font-size: 18px;
+    }
+    
     /* Уменьшаем эмодзи на мобильных */
     body.winter .profile-image::before,
     body.spring .profile-image::before,
@@ -1360,6 +1521,11 @@ body.special-birthday .profile-image {
     body.winter .profile-image::after,
     body.spring .profile-image::after {
         font-size: 28px;
+    }
+    
+    /* Отключаем падающие анимации на мобильных */
+    .season-animations {
+        display: none;
     }
 }
 
@@ -1393,5 +1559,18 @@ body.special-birthday .profile-image {
     
     .footer {
         font-size: 13px;
+    }
+    
+    .legendary-btn .platform-name {
+        font-size: 16px;
+    }
+}
+
+/* Оптимизация для медленных устройств */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
