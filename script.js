@@ -4,15 +4,16 @@
 
 const CONFIG = {
     launchDate: '2025-12-31T23:59:59', // Дата запуска сайта
+    legendaryDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(), // +5 дней от текущей даты
     birthdayMonth: 3,  // Месяц дня рождения (1-12)
     birthdayDay: 15,   // День рождения
     
-    // Количество падающих элементов (уменьшено для производительности)
+    // Количество падающих элементов
     particles: {
-        winter: 20,   // Было 30
-        spring: 15,   // Было 20
-        summer: 15,   // Было 25
-        autumn: 18    // Было 25
+        winter: 20,
+        spring: 15,
+        summer: 15,
+        autumn: 18
     },
     
     // Задержка перед стартом анимаций (мс)
@@ -37,7 +38,6 @@ window.addEventListener('load', function() {
         5: document.getElementById('stage-5')
     };
     
-    // Показываем первую сцену
     stages[1]?.classList.add('active');
     
     const interval = setInterval(() => {
@@ -47,7 +47,6 @@ window.addEventListener('load', function() {
             
             if (progress > 100) progress = 100;
             
-            // Обновляем прогресс-бар
             if (progressFill) {
                 progressFill.style.width = progress + '%';
             }
@@ -55,7 +54,6 @@ window.addEventListener('load', function() {
                 progressPercent.textContent = Math.floor(progress) + '%';
             }
             
-            // Переключаем сцены
             if (progress >= 0 && progress < 20) {
                 showStage(1);
             } else if (progress >= 20 && progress < 40) {
@@ -71,7 +69,6 @@ window.addEventListener('load', function() {
         } else {
             clearInterval(interval);
             
-            // Финал — исчезновение
             setTimeout(() => {
                 if (preloader) {
                     preloader.classList.add('hidden');
@@ -140,10 +137,9 @@ function animateCounter(target) {
 
 function getCurrentSeasonAndTime() {
     const now = new Date();
-    const month = now.getMonth(); // 0-11
-    const hour = now.getHours(); // 0-23
+    const month = now.getMonth();
+    const hour = now.getHours();
     
-    // Определяем сезон
     let season;
     if (month === 11 || month <= 1) {
         season = 'winter';
@@ -155,7 +151,6 @@ function getCurrentSeasonAndTime() {
         season = 'autumn';
     }
     
-    // Определяем время суток
     let timeOfDay;
     if (hour >= 6 && hour < 12) {
         timeOfDay = 'morning';
@@ -173,14 +168,11 @@ function getCurrentSeasonAndTime() {
 function updateSeasonAndTime() {
     const { season, timeOfDay, now } = getCurrentSeasonAndTime();
     
-    // Применяем классы к body
     document.body.className = '';
     document.body.classList.add(season, timeOfDay);
     
-    // Проверяем специальные события
     checkSpecialEvents(now);
     
-    // Добавляем сезонные анимации с задержкой
     setTimeout(() => {
         addSeasonalAnimations(season);
     }, CONFIG.animationDelay);
@@ -194,7 +186,7 @@ function addSeasonalAnimations(season) {
     const container = document.getElementById('season-animations');
     if (!container) return;
     
-    container.innerHTML = ''; // Очищаем
+    container.innerHTML = '';
     
     const particleCount = CONFIG.particles[season] || 20;
     const createElement = (className, emoji, duration, delay) => {
@@ -204,7 +196,6 @@ function addSeasonalAnimations(season) {
         element.style.left = Math.random() * 100 + '%';
         element.style.animationDuration = duration + 's';
         element.style.animationDelay = delay + 's';
-        // Оптимизация производительности
         element.style.willChange = 'transform, opacity';
         return element;
     };
@@ -251,28 +242,75 @@ function addSeasonalAnimations(season) {
 // ============================================
 
 function checkSpecialEvents(now) {
-    const month = now.getMonth() + 1; // 1-12
+    const month = now.getMonth() + 1;
     const day = now.getDate();
     
-    // Новый Год
     if ((month === 12 && day >= 31) || (month === 1 && day <= 7)) {
         document.body.classList.add('special-newyear');
     }
     
-    // Хэллоуин
     if (month === 10 && day === 31) {
         document.body.classList.add('special-halloween');
     }
     
-    // День Святого Валентина
     if (month === 2 && day === 14) {
         document.body.classList.add('special-valentine');
     }
     
-    // День Рождения
     if (month === CONFIG.birthdayMonth && day === CONFIG.birthdayDay) {
         document.body.classList.add('special-birthday');
     }
+}
+
+// ============================================
+//   ЛЕГЕНДАРНЫЙ ТАЙМЕР
+// ============================================
+
+function initLegendaryCountdown() {
+    const legendaryDate = new Date(CONFIG.legendaryDate).getTime();
+    
+    const updateTimer = () => {
+        const now = new Date().getTime();
+        const distance = legendaryDate - now;
+        
+        const elements = {
+            days: document.getElementById('legendary-days'),
+            hours: document.getElementById('legendary-hours'),
+            minutes: document.getElementById('legendary-minutes'),
+            seconds: document.getElementById('legendary-seconds')
+        };
+        
+        if (distance < 0) {
+            Object.values(elements).forEach(el => {
+                if (el) el.textContent = '00';
+            });
+            
+            const legendaryBtn = document.querySelector('.legendary-btn');
+            if (legendaryBtn) {
+                legendaryBtn.style.pointerEvents = 'auto';
+                legendaryBtn.onclick = () => {
+                    window.open('https://твоя-ссылка.com', '_blank');
+                };
+            }
+            return;
+        }
+        
+        const time = {
+            days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+            seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        };
+        
+        Object.keys(time).forEach(key => {
+            if (elements[key]) {
+                elements[key].textContent = String(time[key]).padStart(2, '0');
+            }
+        });
+    };
+    
+    updateTimer();
+    setInterval(updateTimer, 1000);
 }
 
 // ============================================
@@ -323,7 +361,6 @@ function initCountdown() {
 // ============================================
 
 window.addEventListener('DOMContentLoaded', function() {
-    // Загружаем сохранённую тему
     const savedTheme = localStorage.getItem('theme');
     const icon = document.getElementById('theme-icon');
     
@@ -333,12 +370,11 @@ window.addEventListener('DOMContentLoaded', function() {
         icon?.classList.add('fa-sun');
     }
     
-    // Запускаем все функции
     initVisitorCounter();
     updateSeasonAndTime();
     initCountdown();
+    initLegendaryCountdown();
     
-    // Обновляем сезон каждый час
     setInterval(updateSeasonAndTime, 3600000);
 });
 
@@ -346,7 +382,6 @@ window.addEventListener('DOMContentLoaded', function() {
 //   ОПТИМИЗАЦИЯ ПРОИЗВОДИТЕЛЬНОСТИ
 // ============================================
 
-// Отключаем анимации при переключении вкладки
 document.addEventListener('visibilitychange', function() {
     const container = document.getElementById('season-animations');
     if (container) {
