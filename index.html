@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Оптимизация -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
     <title>5Maks - Социальные сети</title>
     <meta name="description" content="Все социальные сети и контакты 5Maks в одном месте">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="loading">
+<body>
     <!-- EPIC CINEMATIC PRELOADER -->
     <div class="preloader" id="preloader">
-        <!-- Чёрный экран с вспышкой -->
+        <!-- Stage 1: Вспышка света -->
         <div class="cinematic-stage stage-1" id="stage-1">
             <div class="flash"></div>
         </div>
         
-        <!-- Космос со звёздами -->
+        <!-- Stage 2: Космос со звёздами -->
         <div class="cinematic-stage stage-2" id="stage-2">
             <div class="stars-container">
                 <div class="star"></div>
@@ -30,12 +40,12 @@
             </div>
         </div>
         
-        <!-- Гиперпространственный туннель -->
+        <!-- Stage 3: Гиперпространство -->
         <div class="cinematic-stage stage-3" id="stage-3">
             <div class="hyperspace"></div>
         </div>
         
-        <!-- Планета 5Maks -->
+        <!-- Stage 4: Планета 5Maks -->
         <div class="cinematic-stage stage-4" id="stage-4">
             <div class="planet">
                 <div class="planet-glow"></div>
@@ -43,10 +53,10 @@
             </div>
         </div>
         
-        <!-- Взрыв логотипа -->
+        <!-- Stage 5: Взрыв логотипа -->
         <div class="cinematic-stage stage-5" id="stage-5">
             <div class="logo-explosion">
-                <h1 class="epic-logo">5Maks</h1>
+                <div class="epic-logo">5MAKS</div>
                 <div class="particles">
                     <span></span><span></span><span></span><span></span>
                     <span></span><span></span><span></span><span></span>
@@ -55,7 +65,7 @@
             </div>
         </div>
         
-        <!-- Прогресс -->
+        <!-- Прогресс-бар -->
         <div class="cinematic-progress">
             <div class="progress-bar-cinematic">
                 <div class="progress-fill" id="progress-fill"></div>
@@ -75,10 +85,12 @@
         <span id="visitor-count">0</span>
     </div>
 
-    <!-- Динамические анимации (сезонные) -->
+    <!-- Сезонные анимации -->
     <div class="season-animations" id="season-animations"></div>
 
+    <!-- Основной контент -->
     <div class="container">
+        <!-- Секция профиля -->
         <div class="profile-section">
             <div class="profile-image">
                 <img src="images/profile.png" alt="5Maks Profile">
@@ -87,10 +99,10 @@
                 <span class="animated-signature">5Maks</span> 
                 <span class="star-icon">⭐</span>
             </h1>
-            <p class="bio">💎 Content Creator | 🎮 Gamer | 🚀 Entrepreneur<br>
-            Добро пожаловать на мою страницу! Все мои соцсети здесь ⬇️</p>
-            
-            <!-- Статистика -->
+            <p class="bio">
+                💎 Content Creator | 🎮 Gamer | 🚀 Entrepreneur<br>
+                Добро пожаловать на мою страницу! Все мои соцсети здесь 👇
+            </p>
             <div class="stats">
                 <div class="stat-item">
                     <div class="stat-number">8+</div>
@@ -107,9 +119,10 @@
             </div>
         </div>
 
+        <!-- Ссылки на соцсети -->
         <div class="links-section">
-            <!-- Donate - ПОДДЕРЖАТЬ -->
-            <a href="https://www.donationalerts.com/r/your_username" target="_blank" class="social-link-button donate-btn">
+            <!-- Donate -->
+            <a href="https://www.donationalerts.com/r/твой_ник" target="_blank" class="social-link-button donate-btn">
                 <div class="icon-wrapper">
                     <i class="fas fa-heart"></i>
                 </div>
@@ -117,113 +130,142 @@
                     <div class="platform-name">Поддержать 💰</div>
                     <div class="link-subtitle">Donate • Помочь автору</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- Telegram -->
-            <a href="https://t.me/molegov1ch" target="_blank" class="social-link-button telegram-btn">
+            <a href="https://t.me/твой_ник" target="_blank" class="social-link-button telegram-btn">
                 <div class="icon-wrapper">
-                    <i class="fab fa-telegram-plane"></i>
+                    <i class="fab fa-telegram"></i>
                 </div>
                 <div class="link-content">
                     <div class="platform-name">Telegram</div>
-                    <div class="link-subtitle">@molegov1ch • Личные сообщения</div>
+                    <div class="link-subtitle">@твой_ник • Личные сообщения</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- Instagram -->
-            <a href="https://www.instagram.com/m.olegov1ch?igsh=a3F0aXRmN3k2NWpk" target="_blank" class="social-link-button instagram-btn">
+            <a href="https://instagram.com/твой_ник" target="_blank" class="social-link-button instagram-btn">
                 <div class="icon-wrapper">
                     <i class="fab fa-instagram"></i>
                 </div>
                 <div class="link-content">
                     <div class="platform-name">Instagram</div>
-                    <div class="link-subtitle">@m.olegov1ch • Фото и истории</div>
+                    <div class="link-subtitle">@твой_ник • Фото и истории</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- TikTok -->
-            <a href="https://www.tiktok.com/@5maks_5?_r=1&_t=ZM-91Gdjbmi5Pg" target="_blank" class="social-link-button tiktok-btn">
+            <a href="https://tiktok.com/@твой_ник" target="_blank" class="social-link-button tiktok-btn">
                 <div class="icon-wrapper">
                     <i class="fab fa-tiktok"></i>
                 </div>
                 <div class="link-content">
                     <div class="platform-name">TikTok</div>
-                    <div class="link-subtitle">@5maks_5 • Креативный контент</div>
+                    <div class="link-subtitle">@твой_ник • Креативный контент</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- YouTube -->
-            <a href="https://youtube.com/@5maks?si=9BWqnzD3jgZbwyij" target="_blank" class="social-link-button youtube-btn">
+            <a href="https://youtube.com/@твой_ник" target="_blank" class="social-link-button youtube-btn">
                 <div class="icon-wrapper">
                     <i class="fab fa-youtube"></i>
                 </div>
                 <div class="link-content">
                     <div class="platform-name">YouTube</div>
-                    <div class="link-subtitle">@5maks • Видео и стримы</div>
+                    <div class="link-subtitle">@твой_ник • Видео и стримы</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
-            <!-- Twitter -->
-            <a href="https://x.com/5Maks_?t=1VUVhLpw2IXCAcRB-UXJSA&s=09" target="_blank" class="social-link-button twitter-btn">
+            <!-- Twitter/X -->
+            <a href="https://twitter.com/твой_ник" target="_blank" class="social-link-button twitter-btn">
                 <div class="icon-wrapper">
                     <i class="fab fa-twitter"></i>
                 </div>
                 <div class="link-content">
-                    <div class="platform-name">Twitter (X)</div>
-                    <div class="link-subtitle">@5Maks_ • Новости и мысли</div>
+                    <div class="platform-name">Twitter</div>
+                    <div class="link-subtitle">@твой_ник • Новости и мысли</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- Discord -->
-            <a href="https://discord.com/users/5maks." target="_blank" class="social-link-button discord-btn">
+            <a href="https://discord.gg/твой_код" target="_blank" class="social-link-button discord-btn">
                 <div class="icon-wrapper">
                     <i class="fab fa-discord"></i>
                 </div>
                 <div class="link-content">
                     <div class="platform-name">Discord</div>
-                    <div class="link-subtitle">@5maks. • Общение и игры</div>
+                    <div class="link-subtitle">Сервер • Общение с сообществом</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- Spotify -->
-            <a href="https://open.spotify.com/user/315dxkkrkt2ny2xl4e7sdzxmeklu?si=QCBWQc2ATmKQNg4Z7nTMug" target="_blank" class="social-link-button spotify-btn">
+            <a href="https://open.spotify.com/user/твой_ник" target="_blank" class="social-link-button spotify-btn">
                 <div class="icon-wrapper">
                     <i class="fab fa-spotify"></i>
                 </div>
                 <div class="link-content">
                     <div class="platform-name">Spotify</div>
-                    <div class="link-subtitle">5Maks • Моя музыка</div>
+                    <div class="link-subtitle">Музыка • Мои плейлисты</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
             <!-- FunPay -->
-            <a href="https://funpay.com/users/6639352/" target="_blank" class="social-link-button funpay-btn">
+            <a href="https://funpay.com/users/твой_ник" target="_blank" class="social-link-button funpay-btn">
                 <div class="icon-wrapper">
                     <i class="fas fa-gamepad"></i>
                 </div>
                 <div class="link-content">
                     <div class="platform-name">FunPay</div>
-                    <div class="link-subtitle">Gaming Services • Продажа услуг</div>
+                    <div class="link-subtitle">Магазин • Игровые услуги</div>
                 </div>
-                <div class="arrow">→</div>
+                <span class="arrow">→</span>
             </a>
 
-            <!-- 5Maks COMING SOON -->
-            <div class="social-link-button disabled-btn">
-                <div class="icon-wrapper">
-                    <i class="fas fa-rocket"></i>
+            <!-- ЛЕГЕНДАРНАЯ КНОПКА ??? -->
+            <div class="social-link-button legendary-btn">
+                <div class="icon-wrapper legendary-icon">
+                    <i class="fas fa-question"></i>
                 </div>
                 <div class="link-content">
-                    <div class="platform-name">5Maks Website 🚀</div>
-                    <div class="link-subtitle">COMING SOON • Запуск через:</div>
+                    <div class="platform-name">??? 🔮✨</div>
+                    <div class="link-subtitle">Легендарный сюрприз • Открытие через:</div>
+                    <div class="countdown-timer legendary-timer">
+                        <div class="timer-block legendary-timer-block">
+                            <span class="timer-value" id="legendary-days">00</span>
+                            <span class="timer-label">дней</span>
+                        </div>
+                        <div class="timer-block legendary-timer-block">
+                            <span class="timer-value" id="legendary-hours">00</span>
+                            <span class="timer-label">часов</span>
+                        </div>
+                        <div class="timer-block legendary-timer-block">
+                            <span class="timer-value" id="legendary-minutes">00</span>
+                            <span class="timer-label">минут</span>
+                        </div>
+                        <div class="timer-block legendary-timer-block">
+                            <span class="timer-value" id="legendary-seconds">00</span>
+                            <span class="timer-label">секунд</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon -->
+            <div class="social-link-button disabled-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="link-content">
+                    <div class="link-subtitle">🚀 СКОРО ЗАПУСК</div>
+                    <div class="platform-name">Новый проект</div>
                     <div class="countdown-timer">
                         <div class="timer-block">
                             <span class="timer-value" id="days">00</span>
@@ -246,12 +288,14 @@
             </div>
         </div>
 
-        <!-- Футер -->
-        <footer class="footer">
-            <p>© 2025 5Maks. Все права защищены.</p>
-            <p class="footer-sub">Создано с ❤️ для вас</p>
-        </footer>
+        <!-- Footer -->
+        <div class="footer">
+            © 2025 5Maks. Все права защищены.
+            <div class="footer-sub">Made with 💜 by 5Maks</div>
+        </div>
     </div>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
